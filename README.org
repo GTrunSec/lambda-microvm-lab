@@ -1,0 +1,20 @@
+#+TITLE: README
+
+
+
+* Simple test example to zeek service
+
+#+NAME:
+#+CAPTION:
+#+ATTR_HTML: :width 500
+[[file:attach/Image 2021-10-19 21-24-45.png]]
+
+#+begin_src sh :async t :exports both :results output
+nix run github:hardenedlinux/zeek2nix#zeek-microvm
+#+end_src
+
+
+* micro-vm to osquery
+#+begin_src sh :async t :exports both :results output
+nix run github:hardenedlinux/nixpkgs-hardenedlinux#osquery-microvm
+#+end_src
