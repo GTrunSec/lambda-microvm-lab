@@ -18,3 +18,13 @@ nix run github:hardenedlinux/zeek2nix#zeek-microvm
 #+begin_src sh :async t :exports both :results output
 nix run github:hardenedlinux/nixpkgs-hardenedlinux#osquery-microvm
 #+end_src
+
+* micro-vm to threatbus
+#+begin_src sh :async t :exports both :results output
+nix run github:GTrunSec/threatbus2nix#threatbus-microvm
+#+end_src
+
+* micro-vm to vast
+#+begin_src sh :async t :exports both :results output
+nix run github:GTrunSec/vast2nix#vast-microvm
+#+end_src
