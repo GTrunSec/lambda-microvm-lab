@@ -1,6 +1,19 @@
 #+TITLE: README
 
 
+* Micro-vms for Hunting lab testing
+#+begin_src sh :async :exports both :results output
+microvm-hunting-lab --help
+#+end_src
+
+#+RESULTS:
+:
+: [4mUsage[0m: microvm-hunting-lab COMMAND [ARGS]
+:
+: [4mCommands[0m:
+:   bridge                         run qemu-micro-vm with bridge net
+:
+
 
 * Simple test example to zeek service
 
