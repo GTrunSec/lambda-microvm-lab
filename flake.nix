@@ -43,27 +43,10 @@
       in
       rec {
         devShell = import ./shell { inherit self inputs pkgs; };
-        packages = inputs.flake-utils.lib.flattenTree {
-          qemu-microvm-bridge = microvm.lib.runner {
-            inherit system;
-            hypervisor = "qemu";
-            nixosConfig = { pkgs, ... }: {
-              networking.hostName = "qemu-microvm";
-              users.users.root.password = "";
-            } // import ./hosts/bridge.nix { inherit pkgs self inputs; };
-            interfaces = [{
-              type = "bridge,br=virbr0";
-              id = "qemu-eth0";
-              mac = "00:02:00:01:01:01";
-            }];
-            volumes = [{
-              mountpoint = "/var";
-              image = "/tmp/microvm-qemu-hunting-lab.img";
-              size = 256;
-            }];
-            socket = "control.socket";
+        packages = inputs.flake-utils.lib.flattenTree
+          {
+            qemu-microvm-bridge = import ./hosts/bridge.nix { inherit self inputs pkgs system; };
           };
-        };
       })
     ) //
     {
