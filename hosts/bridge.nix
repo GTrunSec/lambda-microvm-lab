@@ -8,6 +8,7 @@ inputs.microvm.lib.runner {
     id = "qemu-eth0";
     mac = "00:02:00:01:01:01";
   }];
+  mem = 8000;
   volumes = [{
     mountpoint = "/var";
     image = "/tmp/microvm-qemu-hunting-lab.img";
@@ -16,22 +17,29 @@ inputs.microvm.lib.runner {
   socket = "control.socket";
 
 
-  nixosConfig = { pkgs, ... }: {
+  nixosConfig = { pkgs, lib, config, ... }: {
+
     networking.hostName = "qemu-microvm";
     users.users.root.password = "";
     imports = [
       inputs.zeek2nix.nixosModules.zeek
+      inputs.vast-flake.nixosModules.vast
     ];
     environment.systemPackages = [
       pkgs.coreutils
       pkgs.gnugrep
     ];
 
-    services.zeek = {
+    services.vast = {
       enable = true;
-      standalone = true;
-      interface = "eth0";
-      host = "127.0.0.1";
+      configFile = ./vast.yaml.example;
     };
+
+    # services.zeek = {
+    #   enable = true;
+    #   standalone = true;
+    #   interface = "eth0";
+    #   host = "127.0.0.1";
+    # };
   };
 }
