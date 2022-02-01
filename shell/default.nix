@@ -4,6 +4,6 @@
     bud.devshellModules.bud
   ];
   exportedModules = [
-    (pkgs.devshell.importTOML ./commands.toml)
+    (inputs.devshell.lib.importTOML ./commands.toml)
   ];
 }

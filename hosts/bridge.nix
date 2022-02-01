@@ -23,7 +23,7 @@ inputs.microvm.lib.runner {
     users.users.root.password = "";
     imports = [
       inputs.zeek2nix.nixosModules.zeek
-      inputs.vast-flake.nixosModules.vast
+      inputs.vast2nix.nixosModules.vast
     ];
     environment.systemPackages = [
       pkgs.coreutils
@@ -31,8 +31,11 @@ inputs.microvm.lib.runner {
     ];
 
     services.vast = {
-      enable = true;
-      configFile = ./vast.yaml.example;
+      enable = false;
+      # integrations.broker = true;
+      package = inputs.vast2nix.packages."${pkgs.stdenv.hostPlatform.system}".vast-release;
+      # integrations.broker = true;
+      extraConfigFile = ./vast.yaml.example;
     };
 
     # services.zeek = {

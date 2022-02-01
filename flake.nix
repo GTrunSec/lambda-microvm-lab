@@ -14,9 +14,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.devshell.follows = "devshell";
     };
-    vast-flake = {
-      #url = "/home/gtrun/ghq/github.com/GTrunSec/vast";
-      url = "github:gtrunsec/vast/fix-flake";
+    vast2nix = {
+      url = "/home/gtrun/ghq/github.com/GTrunSec/vast2nix";
+      #url = "github:gtrunsec/vast/fix-flake";
     };
   };
 
@@ -29,27 +29,21 @@
     , bud
     , microvm
     , zeek2nix
-    , vast-flake
+    , vast2nix
     }:
     { }
     //
     (flake-utils.lib.eachDefaultSystem
       (system:
       let
-        pkgs = import nixpkgs {
-          inherit system;
-          overlays = [
-            self.overlay
-            devshell.overlay
-          ];
-        };
+        pkgs = inputs.nixpkgs.legacyPackages.${system};
       in
       rec {
         devShell =
           let
-            eval = import "${devshell}/modules" pkgs;
+            eval = import "${inputs.devshell}/modules" pkgs;
             configuration = {
-              name = pkgs.lib.mkDefault "devshell";
+              name = nixpkgs.lib.mkDefault "devshell";
               imports =
                 let
                   devshell = import ./shell {
@@ -73,9 +67,6 @@
       })
     ) //
     {
-      overlay = final: prev: {
-        inherit (inputs.zeek.packages) zeek-release;
-      };
       budModules = {
         vm-lab = { category = "general commands"; description = "highly customizable system ctl for VM hunting lab"; path = import ./shell/microvm-hunting-lab; };
       };
