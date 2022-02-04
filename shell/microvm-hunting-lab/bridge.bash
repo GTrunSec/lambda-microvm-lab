@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-/run/wrappers/bin/sudo nix -Lv run $PRJ_ROOT#qemu-microvm-bridge
+/run/wrappers/bin/sudo -E nix -Lv run $PRJ_ROOT#vm

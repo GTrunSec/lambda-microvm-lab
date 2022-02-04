@@ -5,70 +5,73 @@
   nixConfig = {
     flake-registry = "https://github.com/hardenedlinux/flake-registry/raw/main/flake-registry.json";
   };
-
-
   inputs = {
     flake-compat.flake = false;
+    home = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     bud = {
       url = "github:GTrunSec/bud/extend";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.devshell.follows = "devshell";
     };
+    digga = {
+      url = "github:divnix/digga";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.devshell.follows = "devshell";
+    };
+    sops-nix = { url = "github:Mic92/sops-nix"; };
     vast2nix = {
       url = "/home/gtrun/ghq/github.com/GTrunSec/vast2nix";
       #url = "github:gtrunsec/vast/fix-flake";
     };
   };
-
-  outputs =
-    inputs@{ self
-    , nixpkgs
-    , flake-utils
-    , flake-compat
-    , devshell
-    , bud
-    , microvm
-    , zeek2nix
-    , vast2nix
-    }:
-    { }
-    //
-    (flake-utils.lib.eachDefaultSystem
-      (system:
-      let
-        pkgs = inputs.nixpkgs.legacyPackages.${system};
-      in
-      rec {
-        devShell =
-          let
-            eval = import "${inputs.devshell}/modules" pkgs;
-            configuration = {
-              name = nixpkgs.lib.mkDefault "devshell";
-              imports =
-                let
-                  devshell = import ./shell {
-                    inherit self inputs pkgs;
-                  };
-                in
-                devshell.modules ++ devshell.exportedModules;
-            };
-          in
-          (eval {
-            inherit configuration;
-            extraSpecialArgs = { inherit self inputs; };
-          }).shell;
-
-        packages = inputs.flake-utils.lib.flattenTree
-          {
-            qemu-microvm-bridge = import ./hosts/bridge.nix {
-              inherit self inputs pkgs system;
-            };
-          };
-      })
-    ) //
-    {
-      budModules = {
-        vm-lab = { category = "general commands"; description = "highly customizable system ctl for VM hunting lab"; path = import ./shell/microvm-hunting-lab; };
+  outputs = inputs @
+  { self
+  , nixpkgs
+  , latest
+  , flake-utils
+  , flake-compat
+  , devshell
+  , bud
+  , digga
+  , home
+  , microvm
+  , zeek2nix
+  , vast2nix
+  , threatbus2nix
+  , sops-nix
+  }:
+  digga.lib.mkFlake {
+    inherit self inputs;
+    # Supported systems, used for packages, apps, devShell and multiple other definitions. Defaults to `flake-utils.lib.defaultSystems`
+    supportedSystems = [ "x86_64-linux" ];
+    channels = import ./channels { inherit self inputs; };
+    channelsConfig = {
+      allowBroken = true;
+      allowUnfree = true;
+    };
+    #lib = import ./lib { lib = digga.lib // nixpkgs.lib; };
+    sharedOverlays = import ./overlays/share { inherit self inputs; };
+    devshell = ./shell;
+    nixos = ./nixos;
+    home = ./users;
+    ########################
+    # # Builder Packages   #
+    ########################
+    outputsBuilder = channels: import ./pkgs/output-builder channels inputs self;
+  }
+  // {
+    ####################################
+    # Deploy-rs Modules Infrastructure #
+    ####################################
+    budModules = {
+      vm-lab = {
+        category = "general commands";
+        description = "highly customizable system ctl for VM hunting lab";
+        path = import ./shell/microvm-hunting-lab;
       };
     };
+  };
 }
