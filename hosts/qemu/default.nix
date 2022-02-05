@@ -1,10 +1,12 @@
 { suites
 , pkgs
 , lib
+, system
+, self
 , ...
 }:
 {
-  imports = suites.qemu ++ [ ];
+  imports = suites.qemu ++ [ ./network.nix ./microvm.nix ];
   environment.systemPackages = [ pkgs.git ];
   services =
     let
@@ -20,10 +22,4 @@
           and `quit` to stop the VM.
         '';
       };
-  # Host MicroVM settings
-  microvm = {
-    mem = 8192;
-    vcpu = 4;
-    socket = "./microvm.sock";
-  };
 }

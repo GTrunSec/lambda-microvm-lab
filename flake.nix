@@ -53,7 +53,6 @@
     sharedOverlays = import ./overlays/share { inherit self inputs; };
     devshell = ./shell;
     nixos = ./nixos;
-    home = ./users;
     ########################
     # # Builder Packages   #
     ########################

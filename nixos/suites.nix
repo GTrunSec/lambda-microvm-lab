@@ -22,5 +22,6 @@ rec {
       # Suites Tags  #
       ################
       qemu = base ++ [ tenzir.vast ];
+      firecracker = base ++ [ tenzir.vast ];
     };
 }
