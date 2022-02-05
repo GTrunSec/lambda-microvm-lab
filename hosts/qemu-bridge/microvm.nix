@@ -11,8 +11,7 @@ in
     hypervisor = "${name}";
     interfaces = [
       {
-        type = "tap";
-        # type = "bridge,br=virbr0";
+        type = "bridge,br=virbr0";
         id = "vm-${builtins.substring 0 4 "${name}"}";
         mac = "00:02:00:01:01:01";
       }

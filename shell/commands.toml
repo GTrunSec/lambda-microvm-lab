@@ -5,7 +5,7 @@ command = "sudo -E nix run .#firecracker --print-build-logs"
 help = "run microvm of firecracker"
 
 [[commands]]
-name = "microvm-qemu"
+name = "microvm-qemu-bridge"
 category = "hosts"
-command = "sudo -E nix run .#qemu --print-build-logs"
-help = "run microvm of qemu"
+command = "sudo -E nix run .#qemu-bridge --print-build-logs"
+help = "run microvm of qemu-bridge"
