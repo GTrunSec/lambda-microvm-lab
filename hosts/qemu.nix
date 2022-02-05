@@ -24,5 +24,6 @@
   microvm = {
     mem = 8192;
     vcpu = 4;
+    socket = "./microvm.sock";
   };
 }

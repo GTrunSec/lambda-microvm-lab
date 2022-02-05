@@ -1,7 +1,6 @@
-{ config, lib, pkgs, ... }:
-
-{
-  services.zeek = {
-    enable = true;
-  };
-}
+{ config
+, lib
+, pkgs
+, ...
+}:
+{ services.zeek = { enable = true; }; }

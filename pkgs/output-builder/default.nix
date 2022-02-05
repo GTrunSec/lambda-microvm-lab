@@ -8,5 +8,6 @@ channels: inputs: self: {
       in
         "${config.microvm.runner.${hypervisor}}/bin/microvm-run";
   };
-  packages.microvm-kernel = inputs.microvm.packages."x86_64-linux".microvm-kernel;
+  packages.microvm-kernel =
+    inputs.microvm.packages."x86_64-linux".microvm-kernel;
 }

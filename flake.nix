@@ -7,11 +7,8 @@
   };
   inputs = {
     flake-compat.flake = false;
-    microvm.inputs.nixpkgs.follows =  "nixpkgs";
-    home = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    microvm.url = "/home/gtrun/ghq/github.com/astro/microvm.nix";
+    microvm.inputs.nixpkgs.follows = "nixpkgs";
     bud = {
       url = "github:GTrunSec/bud/extend";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,7 +34,6 @@
   , devshell
   , bud
   , digga
-  , home
   , microvm
   , zeek2nix
   , vast2nix
@@ -53,7 +49,7 @@
       allowBroken = true;
       allowUnfree = true;
     };
-    #lib = import ./lib { lib = digga.lib // nixpkgs.lib; };
+    lib = import ./lib { lib = digga.lib // nixpkgs.lib; };
     sharedOverlays = import ./overlays/share { inherit self inputs; };
     devshell = ./shell;
     nixos = ./nixos;

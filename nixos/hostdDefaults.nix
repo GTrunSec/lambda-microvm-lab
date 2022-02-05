@@ -10,7 +10,6 @@
   imports = [ (inputs.digga.lib.importExportableModules ./modules) ];
   modules = [
     { _module.args.ourLib = self.lib; }
-    inputs.home.nixosModules.home-manager
     inputs.microvm.nixosModules.host
     inputs.microvm.nixosModules.microvm
     customModules.nsmModules

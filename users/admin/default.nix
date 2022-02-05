@@ -7,7 +7,6 @@ let
   user = builtins.baseNameOf ./.;
 in
 {
-  home-manager.users = { inherit (hmUsers) admin; };
   # root passwordFile issue
   security.sudo.wheelNeedsPassword = false;
   users.users."${user}" = {
