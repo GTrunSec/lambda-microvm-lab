@@ -3,6 +3,4 @@
 , pkgs
 , ...
 }:
-{
-  exportedModules = [ ./commands.toml ];
-}
+{ exportedModules = [ ./commands.toml ]; }

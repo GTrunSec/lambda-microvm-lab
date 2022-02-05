@@ -7,6 +7,7 @@
   };
   inputs = {
     flake-compat.flake = false;
+    microvm.inputs.nixpkgs.follows =  "nixpkgs";
     home = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

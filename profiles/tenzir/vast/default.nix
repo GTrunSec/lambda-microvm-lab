@@ -5,10 +5,8 @@
 }:
 {
   services.vast = {
-    enable = false;
-    # integrations.broker = true;
+    enable = true;
     package = pkgs.vast-release;
-    # integrations.broker = true;
     extraConfigFile = ./vast.yaml.example;
   };
 }

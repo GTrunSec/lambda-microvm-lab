@@ -25,5 +25,5 @@ inputs.microvm.lib.runner {
     }
   ];
   socket = "control.socket";
-  nixosConfig = {};
+  nixosConfig = { };
 }

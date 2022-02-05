@@ -4,8 +4,9 @@ channels: inputs: self: {
     program =
       let
         inherit (self.nixosConfigurations.qemu) config;
+        inherit (config.microvm) hypervisor;
       in
-        "${config.system.build.vm}/bin/run-${config.networking.hostName}-vm";
+        "${config.microvm.runner.${hypervisor}}/bin/microvm-run";
   };
-  packages.qemu-microvm-bridge = import ../../runners/bridge.nix { inherit channels inputs;};
+  packages.microvm-kernel = inputs.microvm.packages."x86_64-linux".microvm-kernel;
 }

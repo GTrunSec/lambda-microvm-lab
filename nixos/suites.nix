@@ -17,10 +17,7 @@ rec {
   suites =
     with profiles;
     rec {
-      base = [
-        users.root
-        users.admin
-      ];
+      base = [ users.root users.admin ];
       ################
       # Suites Tags  #
       ################
