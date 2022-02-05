@@ -1,13 +1,23 @@
-channels: inputs: self: {
-  apps.vm = {
-    type = "app";
-    program =
-      let
-        inherit (self.nixosConfigurations.qemu) config;
-        inherit (config.microvm) hypervisor;
-      in
-        "${config.microvm.runner.${hypervisor}}/bin/microvm-run";
-  };
+channels: inputs: self: let
+  mkApp = builtins.listToAttrs (
+    map (
+      name: {
+        value = {
+          type = "app";
+          program =
+            let
+              inherit (self.nixosConfigurations."${name}") config;
+              inherit (config.microvm) hypervisor;
+            in
+              "${config.microvm.runner."${hypervisor}"}/bin/microvm-run";
+        };
+        name = "${name}";
+      }
+    ) (builtins.attrNames self.nixosConfigurations)
+  );
+in
+{
+  apps = { } // mkApp;
   packages.microvm-kernel =
     inputs.microvm.packages."x86_64-linux".microvm-kernel;
 }

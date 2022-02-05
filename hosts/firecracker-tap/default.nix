@@ -10,5 +10,6 @@ let
 in
 {
   imports = suites."${name}" ++ [ ./microvm.nix ./network.nix ];
+  microvm.hypervisor = "firecracker";
   environment.systemPackages = [ pkgs.git ];
 }

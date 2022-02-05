@@ -1,20 +1,31 @@
-{ config, lib, pkgs, self, ... }:
-
+{ config
+, lib
+, pkgs
+, ...
+}:
+let
+  name = builtins.baseNameOf ./.;
+in
 {
   microvm = {
+    hypervisor = "${name}";
+    interfaces = [
+      {
+        type = "tap";
+        # type = "bridge,br=virbr0";
+        id = "vm-${builtins.substring 0 4 "${name}"}";
+        mac = "00:02:00:01:01:01";
+      }
+    ];
     mem = 8192;
     vcpu = 4;
-    socket = "./microvm.sock";
-  };
-
-  microvm.volumes = [ {
-    mountPoint = "/var";
-    image = "runners/var.img";
-    size = 32;
-  } ];
-
-  microvm.vms."firecracker" = {
-    flake = self;
-    updateFlake = "microvm";
+    socket = "/tmp/${name}.sock";
+    volumes = [
+      {
+        mountPoint = "/var";
+        image = "/tmp/${name}.img";
+        size = 256;
+      }
+    ];
   };
 }
