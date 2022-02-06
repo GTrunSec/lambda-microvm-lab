@@ -1,11 +1,18 @@
 [[commands]]
 name = "microvm-firecracker"
 category = "hosts"
-command = "sudo -E nix run .#firecracker --print-build-logs"
+command = "nix run .#firecracker --print-build-logs"
 help = "run microvm of firecracker"
 
 [[commands]]
 name = "microvm-qemu-bridge"
 category = "hosts"
-command = "sudo -E nix run .#qemu-bridge --print-build-logs"
+command = "sudo nix run .#qemu-bridge --print-build-logs"
 help = "run microvm of qemu-bridge"
+
+
+[[commands]]
+name = "microvm-qemu"
+category = "hosts"
+command = "sudo nix run .#qemu-host --print-build-logs"
+help = "run microvm of qemu-host"

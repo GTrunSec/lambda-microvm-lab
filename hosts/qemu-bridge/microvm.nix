@@ -5,24 +5,26 @@
 }:
 let
   name = builtins.baseNameOf ./.;
+  hypervisor = builtins.head (builtins.split "-" name);
 in
 {
   microvm = {
-    hypervisor = "${name}";
+    inherit hypervisor;
     interfaces = [
       {
-        type = "bridge,br=virbr0";
+        type = "bridge";
+        bridge = "virbr0";
         id = "vm-${builtins.substring 0 4 "${name}"}";
         mac = "00:02:00:01:01:01";
       }
     ];
     mem = 8192;
     vcpu = 4;
-    socket = "/tmp/${name}.sock";
+    socket = "${name}.sock";
     volumes = [
       {
         mountPoint = "/var";
-        image = "/tmp/${name}.img";
+        image = "${name}.img";
         size = 256;
       }
     ];
