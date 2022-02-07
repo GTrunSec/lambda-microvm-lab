@@ -1,9 +1,11 @@
 #+TITLE: README
 
+**WIP**
 
 * Micro-vms for Hunting lab testing
+
 #+begin_src sh :async :exports both :results output
-microvm-hunting-lab --help
+microvm-lab --help
 #+end_src
 
 #+RESULTS:
@@ -15,7 +17,6 @@ microvm-hunting-lab --help
 :
 
 
-* Simple test example to zeek service
 
 #+NAME:
 #+CAPTION:
@@ -24,20 +25,4 @@ microvm-hunting-lab --help
 
 #+begin_src sh :async t :exports both :results output
 nix run github:hardenedlinux/zeek2nix#zeek-microvm
-#+end_src
-
-
-* micro-vm to osquery
-#+begin_src sh :async t :exports both :results output
-nix run github:hardenedlinux/nixpkgs-hardenedlinux#osquery-microvm
-#+end_src
-
-* micro-vm to threatbus
-#+begin_src sh :async t :exports both :results output
-nix run github:GTrunSec/threatbus2nix#threatbus-microvm
-#+end_src
-
-* micro-vm to vast
-#+begin_src sh :async t :exports both :results output
-nix run github:GTrunSec/vast2nix#vast-microvm
 #+end_src

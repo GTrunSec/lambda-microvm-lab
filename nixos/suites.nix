@@ -21,8 +21,13 @@ rec {
       ################
       # Suites Tags  #
       ################
-      qemu-host = base ++ [ ];
-      firecracker = base ++ [ tenzir.vast ];
+      qemu-host = base ++ [ tenzir.vast ];
+      firecracker =
+        base
+        ++ [
+          tenzir.vast
+          # tenzir.client
+        ];
       qemu-bridge = base ++ [ tenzir.vast ];
       firecracker-tap = base ++ [ tenzir.vast ];
     };

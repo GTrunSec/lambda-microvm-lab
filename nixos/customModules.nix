@@ -1,10 +1,11 @@
 inputs: with inputs;
 {
-  nsmModules = [
+  nsm = [
     zeek2nix.nixosModules.zeek
     vast2nix.nixosModules.vast
+    vast2nix.nixosModules.vast-client
     threatbus2nix.nixosModules.threatbus
     threatbus2nix.nixosModules.threatbus-vast
   ];
-  sopsTemplate = [ sops-nix.nixosModules.sops ];
+  secrets = [ sops-nix.nixosModules.sops ragenix.nixosModules.age ];
 }

@@ -44,6 +44,7 @@
   , vast2nix
   , threatbus2nix
   , sops-nix
+  , ragenix
   }:
   digga.lib.mkFlake {
     inherit self inputs;
@@ -65,11 +66,8 @@
     outputsBuilder = channels: import ./pkgs/output-builder channels inputs self;
   }
   // {
-    ####################################
-    # Deploy-rs Modules Infrastructure #
-    ####################################
     budModules = {
-      vm-lab = {
+      microvm-lab = {
         category = "general commands";
         description = "highly customizable system ctl for VM hunting lab";
         path = import ./shell/microvm-hunting-lab;
