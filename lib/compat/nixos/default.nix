@@ -5,4 +5,4 @@ _: let
   default = (import ../.).defaultNix;
   hostname = lib.fileContents /etc/hostname;
 in
-host
+  host

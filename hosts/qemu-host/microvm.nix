@@ -1,6 +1,7 @@
 { config
 , lib
 , pkgs
+, inputs
 , self
 , ...
 }:
@@ -8,6 +9,10 @@ let
   name = builtins.baseNameOf ./.;
 in
 {
+  imports = [
+    inputs.microvm.nixosModules.host
+  ];
+
   microvm = {
     mem = 8192;
     vcpu = 4;

@@ -8,11 +8,11 @@ help = "run microvm of firecracker"
 name = "microvm-qemu-bridge"
 category = "hosts"
 command = "sudo nix run .#qemu-bridge --print-build-logs"
-help = "run microvm of qemu-bridge"
+help = "run microvm of qemu-bridge | root required"
 
 
 [[commands]]
 name = "microvm-qemu"
 category = "hosts"
-command = "sudo nix run .#qemu-host --print-build-logs"
+command = "nix run .#qemu-host --print-build-logs"
 help = "run microvm of qemu-host"

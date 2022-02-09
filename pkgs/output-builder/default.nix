@@ -16,8 +16,8 @@ channels: inputs: self: let
     ) (builtins.attrNames self.nixosConfigurations)
   );
 in
-{
-  apps = { } // mkApp;
-  packages.microvm-kernel =
-    inputs.microvm.packages."x86_64-linux".microvm-kernel;
-}
+  {
+    apps = { } // mkApp;
+    packages.microvm-kernel =
+      inputs.microvm.packages."x86_64-linux".microvm-kernel;
+  }
