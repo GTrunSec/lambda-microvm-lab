@@ -13,7 +13,7 @@ in
     interfaces = [
       {
         type = "tap";
-        id = "vm-${builtins.substring 0 4 "${hypervisor}"}";
+        id = "vm-${builtins.substring 0 2 "${hypervisor}"}-0";
         mac = "00:02:00:01:01:03";
       }
     ];

@@ -1,5 +1,5 @@
 {
-  description = "Lambda Microvm For Hunting-Lab";
+  description = "Lambda Microvm For Hunting Lab";
   nixConfig.extra-substituters = "https://zeek.cachix.org";
   nixConfig.extra-trusted-public-keys = "zeek.cachix.org-1:w590YE/k5sB26LSWvDCI3dccCXipBwyPenhBH2WNDWI=";
   nixConfig = {
@@ -8,14 +8,13 @@
   inputs = {
     flake-compat.flake = false;
     microvm.url = "/home/gtrun/ghq/github.com/astro/microvm.nix";
-    microvm.inputs.nixpkgs.follows = "nixpkgs";
     bud = {
       url = "github:GTrunSec/bud/extend";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.devshell.follows = "devshell";
     };
     digga = {
-      url = "github:divnix/digga";
+      url = "github:divnix/digga/14b7b968f39d11d5e3b867b0bd0fb7f1296da9cb";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.devshell.follows = "devshell";
     };

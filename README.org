@@ -5,24 +5,5 @@
 * Micro-vms for Hunting lab testing
 
 #+begin_src sh :async :exports both :results output
-microvm-lab --help
-#+end_src
-
-#+RESULTS:
-:
-: [4mUsage[0m: microvm-hunting-lab COMMAND [ARGS]
-:
-: [4mCommands[0m:
-:   bridge                         run qemu-micro-vm with bridge net
-:
-
-
-
-#+NAME:
-#+CAPTION:
-#+ATTR_HTML: :width 500
-[[file:attach/zeek-micro-vm.png]]
-
-#+begin_src sh :async t :exports both :results output
-nix run github:hardenedlinux/zeek2nix#zeek-microvm
+nix develop
 #+end_src

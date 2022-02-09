@@ -10,9 +10,20 @@ category = "hosts"
 command = "sudo nix run .#qemu-bridge --print-build-logs"
 help = "run microvm of qemu-bridge | root required"
 
-
 [[commands]]
 name = "microvm-qemu"
 category = "hosts"
 command = "nix run .#qemu-host --print-build-logs"
 help = "run microvm of qemu-host"
+
+[[commands]]
+name = "cachix-microvm"
+category = "cache"
+command = "nix -Lv build .#microvm-kernel --no-link --json | jq -r '.[].outputs | to_entries[].value' | cachix push zeek"
+help = "push microvm-kernel to cachix"
+
+[[commands]]
+name = "cachix-qemu"
+category = "cache"
+command = "nix -Lv build .#qemu --no-link --json | jq -r '.[].outputs | to_entries[].value' | cachix push zeek"
+help = "push qemu to cachix"

@@ -1,8 +1,6 @@
 { suites
 , pkgs
 , lib
-, system
-, self
 , ...
 }:
 {
