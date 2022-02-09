@@ -4,11 +4,13 @@
 , ...
 }:
 {
-  vast-client = {
+  services.vast-client = {
     enable = true;
-    settings.vast.endpoint = "192.168.1.5:42000";
+    settings.vast.endpoint = config.machine.services.vast-client.endpoint;
     package = pkgs.vast-release;
-    integrations.pcap.enable = true;
-    integrations.pcap.interface = "eth0";
+    integrations.broker = config.machine.services.vast-client.broker;
+    integrations.pcap.enable = config.machine.services.vast-client.pcap.enable;
+    integrations.pcap.interface =
+      config.machine.services.vast-client.pcap.interface;
   };
 }

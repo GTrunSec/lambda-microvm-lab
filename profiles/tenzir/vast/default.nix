@@ -9,7 +9,7 @@
     package = pkgs.vast-release;
     settings = {
       vast = {
-        endpoint = "127.0.0.1:42000";
+        endpoint = config.machine.services.vast.endpoint;
       };
     };
     extraConfigFile = ./vast.yaml.example;

@@ -1,0 +1,11 @@
+[info]
+ip = "10.0.0.2"
+
+[services.vast]
+endpoint = "10.0.0.2:42000"
+
+[services.vast-client]
+endpoint = "10.0.0.2:42000"
+broker = true
+pcap.enable = false
+pcap.interface = "eth0"

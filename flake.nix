@@ -26,7 +26,7 @@
     sops-nix = { url = "github:Mic92/sops-nix"; };
     vast2nix = {
       url = "/home/gtrun/ghq/github.com/GTrunSec/vast2nix";
-      #url = "github:gtrunsec/vast/fix-flake";
+      #url = "github:tenzir/vast";
     };
   };
   outputs =

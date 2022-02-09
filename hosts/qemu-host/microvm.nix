@@ -29,4 +29,8 @@ in
     flake = self;
     updateFlake = "microvm";
   };
+  microvm.vms."cloud-hypervisor-tap" = {
+    flake = self;
+    updateFlake = "microvm";
+  };
 }

@@ -1,0 +1,5 @@
+[info]
+ip = "10.0.0.1"
+
+[services.vast]
+endpoint = "10.0.0.1:42000"

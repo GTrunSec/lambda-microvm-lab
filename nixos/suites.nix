@@ -19,16 +19,23 @@ rec {
     rec {
       base = [ users.root users.admin ];
       ################
-      # Suites Tags  #
+      # Tap Hosts    #
       ################
       qemu-host = base ++ [ tenzir.vast ];
+      firecracker-tap = base ++ [ tenzir.vast-client ];
+      cloud-hypervisor-tap = base ++ [ tenzir.vast-client ];
+      ################
+      # Bridge Hosts #
+      ################
+      qemu-bridge = base ++ [ tenzir.vast ];
+      ###########################
+      # single Hypervisor Hosts #
+      ###########################
       firecracker =
         base
         ++ [
           tenzir.vast
           # tenzir.client
         ];
-      qemu-bridge = base ++ [ tenzir.vast ];
-      firecracker-tap = base ++ [ tenzir.vast ];
     };
 }
