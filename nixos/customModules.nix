@@ -1,4 +1,5 @@
-inputs: with inputs;
+inputs:
+with inputs;
 {
   nsm = [
     zeek2nix.nixosModules.zeek

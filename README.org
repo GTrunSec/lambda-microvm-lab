@@ -2,6 +2,14 @@
 
 **WIP**
 
+* Namespace
+** hosts
+
+rules: *<network mode>_<hypervisor-name><number>*
+example: tap_clould-hypervisor_1 example: bridge_clould-hypervisor_1
+
+
+
 * Micro-vms for Hunting lab testing
 
 #+begin_src sh :async :exports both :results output

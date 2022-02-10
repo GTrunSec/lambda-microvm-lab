@@ -4,27 +4,26 @@
 , ...
 }:
 let
-  name = builtins.baseNameOf ./.;
-  hypervisor = builtins.head (builtins.split "-" name);
+  info = lib.our.getHostInfo ./.;
 in
 {
   microvm = {
-    inherit hypervisor;
+    hypervisor = info.name;
     interfaces = [
       {
         type = "bridge";
         bridge = "virbr0";
-        id = "vm-${builtins.substring 0 4 "${name}"}";
-        mac = "00:02:00:01:01:01";
+        id = "vm-${builtins.substring 0 4 "${info.name}"}${info.id}";
+        mac = "00:02:00:01:01:0${info.id}";
       }
     ];
     mem = 8192;
     vcpu = 4;
-    socket = "${name}.sock";
+    socket = "${info.name}.sock";
     volumes = [
       {
         mountPoint = "/var";
-        image = "${name}.img";
+        image = "${info.name}.img";
         size = 256;
       }
     ];

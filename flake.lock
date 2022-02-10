@@ -9993,15 +9993,15 @@
       "locked": {
         "lastModified": 1644435209,
         "narHash": "sha256-zx0h9ymakJN/m22HHmu4y6qy0Esljo6Eefo77/7au+w=",
-        "ref": "main",
+        "owner": "gtrunsec",
+        "repo": "vast2nix",
         "rev": "cadada53e88fcd067cd2284d6c45ffd9022cec18",
-        "revCount": 93,
-        "type": "git",
-        "url": "file:///home/gtrun/ghq/github.com/GTrunSec/vast2nix"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/gtrun/ghq/github.com/GTrunSec/vast2nix"
+        "owner": "gtrunsec",
+        "repo": "vast2nix",
+        "type": "github"
       }
     },
     "zeek-vast-src": {

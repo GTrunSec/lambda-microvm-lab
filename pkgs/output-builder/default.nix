@@ -19,6 +19,6 @@ in
   {
     apps = { } // mkApp;
     packages.microvm-kernel =
-      self.nixosConfigurations.qemu-host.config.boot.kernelPackages.kernel;
-    packages.qemu = self.nixosConfigurations.qemu-host.pkgs.qemu;
+      self.nixosConfigurations.tap_qemu_host.config.boot.kernelPackages.kernel;
+    packages.qemu = self.nixosConfigurations.tap_qemu_host.pkgs.qemu;
   }

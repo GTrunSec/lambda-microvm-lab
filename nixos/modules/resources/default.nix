@@ -4,7 +4,7 @@
 , ...
 }:
 let
-  dir = ../../../profiles/options;
+  dir = ../../../hosts;
   DirNames = builtins.attrNames (builtins.readDir dir);
   machine =
     (
@@ -13,7 +13,7 @@ let
         builtins.listToAttrs (
           map (
             _dir: {
-              value = lib.importTOML (dir + "/${_dir}");
+              value = lib.importTOML (dir + "/${_dir}/options.toml");
               name = lib.removeSuffix ".toml" _dir;
             }
           )
@@ -29,7 +29,7 @@ in
     {
       machine = mkOption {
         default = machine;
-        description = "hosts username";
+        description = "host's options";
       };
     };
 }

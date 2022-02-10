@@ -3,8 +3,11 @@
 , lib
 , ...
 }:
+let
+  name = builtins.baseNameOf ./.;
+in
 {
-  imports = suites.qemu-host ++ [ ./network.nix ./microvm.nix ];
+  imports = suites.${name} ++ [ ./network.nix ./microvm.nix ];
   environment.systemPackages = [ pkgs.git ];
   services =
     let

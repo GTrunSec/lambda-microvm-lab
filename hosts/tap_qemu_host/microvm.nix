@@ -26,15 +26,15 @@ in
     }
   ];
   # we prefer to use firecracker as containter
-  microvm.vms."firecracker-tap" = {
+  microvm.vms."tap_firecracker_1" = {
     flake = self;
     updateFlake = "microvm";
   };
-  microvm.vms."cloud-hypervisor-tap" = {
+  microvm.vms."tap_cloud-hypervisor_1" = {
     flake = self;
     updateFlake = "microvm";
   };
-  microvm.vms."cloud-hypervisor-tap-1" = {
+  microvm.vms."tap_cloud-hypervisor_2" = {
     flake = self;
     updateFlake = "microvm";
   };

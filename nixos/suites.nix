@@ -21,22 +21,22 @@ rec {
       ################
       # Tap Hosts    #
       ################
-      qemu-host = base ++ [ tenzir.vast ];
-      firecracker-tap = base ++ [ tenzir.vast-client ];
-      cloud-hypervisor-tap = base ++ [ tenzir.vast-client ];
-      cloud-hypervisor-tap-1 = base ++ [ tenzir.vast-client ];
+      tap_qemu_host = base ++ [ tenzir.vast ];
+      tap_firecracker_1 = base ++ [ tenzir.vast-client ];
+      tap_cloud-hypervisor_1 = base ++ [ tenzir.vast-client ];
+      tap_cloud-hypervisor_2 = base ++ [ tenzir.vast-client ];
       ################
       # Bridge Hosts #
       ################
-      qemu-bridge = base ++ [ tenzir.vast ];
-      ###########################
-      # single Hypervisor Hosts #
-      ###########################
-      firecracker =
+      bridge_qemu_1 = base ++ [ tenzir.vast ];
+      firecracker_bridge_1 =
         base
         ++ [
           tenzir.vast
           # tenzir.client
         ];
+      ###########################
+      # single Hypervisor Hosts #
+      ###########################
     };
 }

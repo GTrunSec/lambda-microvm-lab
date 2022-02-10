@@ -24,7 +24,8 @@
     };
     sops-nix = { url = "github:Mic92/sops-nix"; };
     vast2nix = {
-      url = "/home/gtrun/ghq/github.com/GTrunSec/vast2nix";
+      # url = "/home/gtrun/ghq/github.com/GTrunSec/vast2nix";
+      url = "github:gtrunsec/vast2nix";
       #url = "github:tenzir/vast";
     };
   };
@@ -48,32 +49,32 @@
     , sops-nix
     , ragenix
     }:
-    digga.lib.mkFlake {
-      inherit self inputs;
-      # Supported systems, used for packages, apps, devShell and multiple other definitions. Defaults to `flake-utils.lib.defaultSystems`
-      supportedSystems = [ "x86_64-linux" ];
-      channels = import ./channels { inherit self inputs; };
-      channelsConfig = {
-        allowBroken = true;
-        allowUnfree = true;
-      };
-      lib = import ./lib { lib = digga.lib // nixpkgs.lib; };
-      sharedOverlays = import ./overlays/share { inherit self inputs; };
-      devshell = ./shell;
-      nixos = ./nixos;
-      home = ./users;
-      ########################
-      # # Builder Packages   #
-      ########################
-      outputsBuilder = channels: import ./pkgs/output-builder channels inputs self;
-    }
-    // {
-      budModules = {
-        microvm-lab = {
-          category = "general commands";
-          description = "highly customizable system ctl for VM hunting lab";
-          path = import ./shell/microvm-hunting-lab;
+      digga.lib.mkFlake {
+        inherit self inputs;
+        # Supported systems, used for packages, apps, devShell and multiple other definitions. Defaults to `flake-utils.lib.defaultSystems`
+        supportedSystems = [ "x86_64-linux" ];
+        channels = import ./channels { inherit self inputs; };
+        channelsConfig = {
+          allowBroken = true;
+          allowUnfree = true;
+        };
+        lib = import ./lib { lib = digga.lib // nixpkgs.lib; };
+        sharedOverlays = import ./overlays/share { inherit self inputs; };
+        devshell = ./shell;
+        nixos = ./nixos;
+        home = ./users;
+        ########################
+        # # Builder Packages   #
+        ########################
+        outputsBuilder = channels: import ./pkgs/output-builder channels inputs self;
+      }
+      // {
+        budModules = {
+          microvm-lab = {
+            category = "general commands";
+            description = "highly customizable system ctl for VM hunting lab";
+            path = import ./shell/microvm-hunting-lab;
+          };
         };
       };
-    };
 }
