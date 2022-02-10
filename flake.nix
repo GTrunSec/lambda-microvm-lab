@@ -7,14 +7,14 @@
   };
   inputs = {
     flake-compat.flake = false;
-    microvm.url = "/home/gtrun/ghq/github.com/astro/microvm.nix";
+    microvm.url = "github:GTrunSec/microvm.nix/interface";
     bud = {
       url = "github:GTrunSec/bud/extend";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.devshell.follows = "devshell";
     };
     digga = {
-      url = "github:divnix/digga/14b7b968f39d11d5e3b867b0bd0fb7f1296da9cb";
+      url = "github:divnix/digga";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.devshell.follows = "devshell";
     };
