@@ -7,6 +7,5 @@ let
   name = builtins.baseNameOf ./.;
 in
 {
-  imports = suites."${name}" ++ [ ./microvm.nix ./network.nix ];
-  environment.systemPackages = [ pkgs.git ];
+  imports = suites."${name}" ++ [ ./microvm.nix ];
 }

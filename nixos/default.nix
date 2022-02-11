@@ -19,4 +19,6 @@ in
   # Hosts  Resources #
   ####################
   imports = [ (inputs.digga.lib.importHosts ../hosts) ];
+
+  hosts = import ./hosts.nix { inherit self inputs customModules; };
 }

@@ -4,17 +4,16 @@
 , ...
 }:
 let
-  name = builtins.baseNameOf ./.;
-  hypervisor = (builtins.head (builtins.split "-" name));
+  info = lib.our.getHostInfo ./.;
 in
 {
   microvm = {
-    inherit hypervisor;
+    hypervisor = info.name;
     interfaces = [
       {
         type = "tap";
-        id = "vm-fc1";
-        mac = "00:02:00:01:01:02";
+        id = "vm-${builtins.substring 0 4 "${info.name}"}${info.id}";
+        mac = "00:02:00:01:01:0${info.mac}";
       }
     ];
   };

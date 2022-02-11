@@ -10,6 +10,7 @@ rec {
     // {
       users = digga.lib.rakeLeaves ../users;
       tenzir = digga.lib.rakeLeaves ../profiles/tenzir;
+      microvm = digga.lib.rakeLeaves ../profiles/microvm;
     };
   ##################
   # Profiles Tags  #
@@ -17,14 +18,14 @@ rec {
   suites =
     with profiles;
     rec {
-      base = [ users.root users.admin ];
+      base = [ core users.root users.admin ];
       ################
       # Tap Hosts    #
       ################
       tap_qemu_host = base ++ [ tenzir.vast ];
-      tap_firecracker_1 = base ++ [ tenzir.vast-client ];
-      tap_cloud-hypervisor_1 = base ++ [ tenzir.vast-client ];
-      tap_cloud-hypervisor_2 = base ++ [ tenzir.vast-client ];
+      tap_firecracker_1 = base ++ [ tenzir.vast-client microvm.tap ];
+      tap_cloud-hypervisor_1 = base ++ [ tenzir.vast-client microvm.tap ];
+      tap_cloud-hypervisor_2 = base ++ [ tenzir.vast-client microvm.tap ];
       ################
       # Bridge Hosts #
       ################

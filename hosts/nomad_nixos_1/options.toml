@@ -1,8 +1,8 @@
 [info]
-ipv4 = "10.0.0.2"
+ipv4 = "192.168.122.100"
 
 [services.vast]
-endpoint = "10.0.0.2:42000"
+endpoint = "192.168.122.100:42000"
 
 [services.vast-client]
 endpoint = "10.0.0.1:42000"

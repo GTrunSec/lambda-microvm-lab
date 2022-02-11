@@ -1,12 +1,11 @@
-job "nixpkgs" {
+job "microvms" {
   datacenters = ["dc1"]
   type        = "batch"
   namespace   = "default"
 
-  group "nixpkgs" {
-    task "nixpkgs" {
+  group "bridge" {
+    task "firecracker" {
       driver = "nix"
-
 
       resources {
         memory = 1000

@@ -7,5 +7,5 @@ let
   name = builtins.baseNameOf ./.;
 in
 {
-  imports = suites."${name}" ++ [ ./microvm.nix ./network.nix ];
+  imports = suites."${name}" ++ [  ];
 }

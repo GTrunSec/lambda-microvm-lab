@@ -1,9 +1,10 @@
 { lib }:
 lib.makeExtensible (
   self: {
-    getHostInfo = dirName: {
+    getHostInfo = dirName: rec {
       name = builtins.elemAt (builtins.split "_" (builtins.baseNameOf dirName)) 2;
       id = builtins.elemAt (builtins.split "_" (builtins.baseNameOf dirName)) 4;
+      mac = toString ((lib.toInt id) + 1);
     };
   }
 )

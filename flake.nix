@@ -28,6 +28,10 @@
       url = "github:gtrunsec/vast2nix";
       #url = "github:tenzir/vast";
     };
+    driver = {
+      url = "github:input-output-hk/nomad-driver-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     inputs @
@@ -42,6 +46,7 @@
     , digga
     , home
     , microvm
+    , driver
     , zeek2nix
     , vast2nix
     , threatbus2nix
