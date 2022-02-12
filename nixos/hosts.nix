@@ -1,5 +1,8 @@
-{ self, inputs, customModules, ... }:
-
+{ self
+, inputs
+, customModules
+, ...
+}:
 {
   example = {
     modules = [

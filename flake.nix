@@ -7,7 +7,9 @@
   };
   inputs = {
     flake-compat.flake = false;
-    microvm.url = "github:GTrunSec/microvm.nix/interface";
+    # microvm.url = "github:GTrunSec/microvm.nix/interface";
+    microvm.url = "/home/gtrun/ghq/github.com/astro/microvm.nix";
+    microvm.inputs.nixpkgs.follows = "nixpkgs";
     bud = {
       url = "github:GTrunSec/bud/extend";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,7 +28,6 @@
     vast2nix = {
       # url = "/home/gtrun/ghq/github.com/GTrunSec/vast2nix";
       url = "github:gtrunsec/vast2nix";
-      #url = "github:tenzir/vast";
     };
     driver = {
       url = "github:input-output-hk/nomad-driver-nix";

@@ -18,7 +18,6 @@ channels: inputs: self: let
 in
   {
     apps = { } // mkApp;
-    packages.microvm-kernel =
-      self.nixosConfigurations.tap_qemu_host.config.boot.kernelPackages.kernel;
+    packages.microvm-kernel = channels.nixpkgs.microvm-kernel;
     packages.qemu = self.nixosConfigurations.tap_qemu_host.pkgs.qemu;
   }

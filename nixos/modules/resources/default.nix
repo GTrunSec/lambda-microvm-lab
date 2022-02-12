@@ -25,8 +25,7 @@ let
 in
 {
   options =
-    with lib;
-    {
+    with lib; {
       machine = mkOption {
         default = machine;
         description = "host's options";

@@ -3,8 +3,7 @@
 , ...
 }:
 with inputs;
-with inputs.nixpkgs;
-rec {
+with inputs.nixpkgs; rec {
   profiles =
     digga.lib.rakeLeaves ../profiles
     // {
@@ -16,8 +15,7 @@ rec {
   # Profiles Tags  #
   ##################
   suites =
-    with profiles;
-    rec {
+    with profiles; rec {
       base = [ core users.root users.admin ];
       ################
       # Tap Hosts    #

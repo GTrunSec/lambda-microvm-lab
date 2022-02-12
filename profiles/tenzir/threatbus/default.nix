@@ -4,4 +4,8 @@
 , ...
 }:
 {
+  services.threatbus = {
+    enable = true;
+    extraConfigFile = ./conf/threatbus.yaml;
+  };
 }

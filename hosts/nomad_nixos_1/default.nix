@@ -7,5 +7,5 @@ let
   name = builtins.baseNameOf ./.;
 in
 {
-  imports = suites."${name}" ++ [  ];
+  imports = suites."${name}" ++ [ ];
 }

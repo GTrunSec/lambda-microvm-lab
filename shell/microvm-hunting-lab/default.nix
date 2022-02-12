@@ -5,8 +5,7 @@
 }:
 {
   bud.cmds =
-    with pkgs;
-    {
+    with pkgs; {
       bridge = {
         writer = budUtils.runner [ nixUnstable git coreutils ];
         synopsis = "bridge";
