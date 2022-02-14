@@ -25,14 +25,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix = { url = "github:Mic92/sops-nix"; };
-    vast2nix = {
-      # url = "/home/gtrun/ghq/github.com/GTrunSec/vast2nix";
-      url = "github:gtrunsec/vast2nix";
-    };
+    vast2nix = { url = "github:gtrunsec/vast2nix"; };
     driver = {
       url = "github:input-output-hk/nomad-driver-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    #cntr.url = "github:Mic92/cntr";
+    cntr.url = "github:gtrunsec/cntr/flake";
+    cntr.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs =
     inputs @
@@ -48,6 +48,7 @@
     , home
     , microvm
     , driver
+    , cntr
     , zeek2nix
     , vast2nix
     , threatbus2nix

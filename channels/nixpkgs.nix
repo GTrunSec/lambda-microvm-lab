@@ -13,6 +13,10 @@
           (inputs.vast2nix.packages."${prev.stdenv.hostPlatform.system}")
           vast-release
           ;
+        inherit
+          (inputs.cntr.packages."${prev.stdenv.hostPlatform.system}")
+          cntr
+          ;
       }
     )
   ];

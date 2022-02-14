@@ -4,5 +4,5 @@
 }:
 {
   modules = with inputs; [ bud.devshellModules.bud ];
-  exportedModules = [ ./commands.toml ];
+  exportedModules = [ ./commands.toml ./lambad-microvm-hunting-lab.nix ];
 }

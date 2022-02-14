@@ -8,5 +8,4 @@ let
 in
 {
   imports = suites."${name}" ++ [ ./microvm.nix ./network.nix ];
-  environment.systemPackages = [ pkgs.git ];
 }

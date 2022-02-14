@@ -8,8 +8,7 @@
     package = pkgs.nixUnstable;
     systemFeatures = [ "recursive-nix" "nixos-test" ];
     extraOptions = ''
-      experimental-features = ca-references recursive-nix
-
+      experimental-features = recursive-nix
     '';
   };
 }
