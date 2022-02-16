@@ -10,11 +10,7 @@
     # microvm.url = "github:GTrunSec/microvm.nix/interface";
     microvm.url = "/home/gtrun/ghq/github.com/astro/microvm.nix";
     microvm.inputs.nixpkgs.follows = "nixpkgs";
-    bud = {
-      url = "github:GTrunSec/bud/extend";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.devshell.follows = "devshell";
-    };
+    cells.url = "github:gtrunsec/DevSecOps-cells";
     digga = {
       url = "github:divnix/digga";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,12 +34,11 @@
     inputs @
     { self
     , nixpkgs
-    , blank
+    , cells
     , latest
     , flake-utils
     , flake-compat
     , devshell
-    , bud
     , digga
     , home
     , microvm
@@ -67,21 +62,12 @@
         };
         lib = import ./lib { lib = digga.lib // nixpkgs.lib; };
         sharedOverlays = import ./overlays/share { inherit self inputs; };
-        devshell = ./shell;
+        devshell = ./devshell;
         nixos = ./nixos;
         home = ./users;
         ########################
         # # Builder Packages   #
         ########################
         outputsBuilder = channels: import ./pkgs/output-builder channels inputs self;
-      }
-      // {
-        budModules = {
-          microvm-lab = {
-            category = "general commands";
-            description = "highly customizable system ctl for VM hunting lab";
-            path = import ./shell/microvm-hunting-lab;
-          };
-        };
       };
 }
