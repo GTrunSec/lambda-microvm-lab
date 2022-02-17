@@ -1,13 +1,13 @@
-{ config
-, lib
-, pkgs
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 let
   name = builtins.baseNameOf ./.;
   hypervisor = (builtins.head (builtins.split "-" name));
-in
-{
+in {
   microvm = {
     inherit hypervisor;
     interfaces = [

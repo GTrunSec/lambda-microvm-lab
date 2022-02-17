@@ -1,11 +1,11 @@
-{ suites
-, pkgs
-, lib
-, ...
+{
+  suites,
+  pkgs,
+  lib,
+  ...
 }:
 let
   name = builtins.baseNameOf ./.;
-in
-{
-  imports = suites."${name}" ++ [ ./microvm.nix ];
+in {
+  imports = suites."${name}" ++ [./microvm.nix];
 }

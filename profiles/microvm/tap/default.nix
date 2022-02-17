@@ -1,8 +1,9 @@
-{ config
-, lib
-, pkgs
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 {
-  imports = [ ./network.nix ];
+  imports = [./network.nix];
 }

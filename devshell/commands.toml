@@ -1,3 +1,5 @@
+[devshell]
+packages = [ "nomad" ]
 [[commands]]
 name = "microvm-firecracker-bridge"
 category = "bridge"
@@ -31,3 +33,10 @@ name = "cachix-qemu"
 category = "cache"
 command = "nix -Lv build .#qemu --no-link --json | jq -r '.[].outputs | to_entries[].value' | cachix push zeek"
 help = "push qemu to cachix"
+
+
+[[commands]]
+name = "nomad_nixos_1"
+category = "nomad"
+command = "nix build .#nixosConfigurations.nomad_nixos_1.config.system.build.toplevel --print-build-logs"
+help = "build nomad_nixos_1"

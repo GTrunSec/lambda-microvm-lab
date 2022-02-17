@@ -1,15 +1,15 @@
-{ self
-, inputs
-, channels
-, ...
+{
+  self,
+  inputs,
+  channels,
+  ...
 }:
 let
   ##################
   # Custom Modules #
   ##################
   customModules = import ./customModules.nix inputs;
-in
-{
+in {
   hostDefaults = import ./hostdDefaults.nix { inherit self inputs channels customModules; };
   ######################################
   # Structured Profiles For Each Host  #
@@ -18,7 +18,7 @@ in
   ####################
   # Hosts  Resources #
   ####################
-  imports = [ (inputs.digga.lib.importHosts ../hosts) ];
+  imports = [(inputs.digga.lib.importHosts ../hosts)];
 
   hosts = import ./hosts.nix { inherit self inputs customModules; };
 }

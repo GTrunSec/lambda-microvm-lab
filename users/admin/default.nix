@@ -1,12 +1,12 @@
-{ hmUsers
-, config
-, pkgs
-, ...
+{
+  hmUsers,
+  config,
+  pkgs,
+  ...
 }:
 let
   user = builtins.baseNameOf ./.;
-in
-{
+in {
   # home-manager.users = { inherit (hmUsers) admin; };
   # root passwordFile issue
   security.sudo.wheelNeedsPassword = false;
@@ -16,6 +16,6 @@ in
     description = "For manager";
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" ];
+    extraGroups = ["wheel"];
   };
 }

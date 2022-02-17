@@ -1,7 +1,8 @@
-{ config
-, lib
-, pkgs
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 {
   systemd.network = {
@@ -38,11 +39,11 @@
     };
   };
   # Allow DHCP server
-  networking.firewall.allowedUDPPorts = [ 67 ];
+  networking.firewall.allowedUDPPorts = [67];
   # Allow Internet access
   networking.nat = {
     enable = true;
     enableIPv6 = true;
-    internalInterfaces = [ "virbr0" ];
+    internalInterfaces = ["virbr0"];
   };
 }

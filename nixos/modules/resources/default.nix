@@ -1,14 +1,14 @@
-{ config
-, lib
-, pkgs
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 let
   dir = ../../../profiles;
   DirNames = builtins.attrNames (builtins.readDir dir);
   machine = (lib.importTOML (dir + "/options.toml")).${config.networking.hostName};
-in
-{
+in {
   options =
     with lib; {
       machine = mkOption {

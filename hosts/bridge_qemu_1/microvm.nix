@@ -1,12 +1,12 @@
-{ config
-, lib
-, pkgs
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 let
   info = lib.our.getHostInfo ./.;
-in
-{
+in {
   microvm = {
     hypervisor = info.hypervisor;
     interfaces = [

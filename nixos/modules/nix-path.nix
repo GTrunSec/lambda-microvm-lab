@@ -1,6 +1,7 @@
-{ channel
-, inputs
-, ...
+{
+  channel,
+  inputs,
+  ...
 }:
 {
   nix.nixPath = [

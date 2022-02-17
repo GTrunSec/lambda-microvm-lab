@@ -1,7 +1,8 @@
-{ pkgs
-, extraModulesPath
-, ...
+{
+  pkgs,
+  extraModulesPath,
+  ...
 }:
 {
-  packages = [ pkgs.cntr ];
+  packages = [pkgs.cntr];
 }

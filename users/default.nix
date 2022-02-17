@@ -1,21 +1,23 @@
-{ self
-, inputs
-, ...
+{
+  self,
+  inputs,
+  ...
 }:
 {
   #################################
   # home-manager Users's Profiles #
   #################################
-  imports = [ (inputs.digga.lib.importExportableModules ./modules) ];
-  modules = [ ];
+  imports = [(inputs.digga.lib.importExportableModules ./modules)];
+  modules = [];
   importables = rec {
     profiles = inputs.digga.lib.rakeLeaves ./profiles;
-    suites = with profiles; rec { base = [ ]; };
+    suites = with profiles; rec { base = []; };
   };
   users = {
     admin =
-      { suites
-      , ...
+      {
+        suites,
+        ...
       }:
       {
         imports = suites.base;

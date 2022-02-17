@@ -11,4 +11,4 @@ let
       }
   ) { src = ../..; };
 in
-flake
+  flake

@@ -22,8 +22,12 @@
     };
     sops-nix = { url = "github:Mic92/sops-nix"; };
     vast2nix = { url = "github:gtrunsec/vast2nix"; };
-    driver = {
+    nomad-driver = {
       url = "github:input-output-hk/nomad-driver-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nomad = {
+      url = "github:input-output-hk/nomad/release-1.2.2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     #cntr.url = "github:Mic92/cntr";
@@ -32,29 +36,30 @@
   };
   outputs =
     inputs @
-    { self
-    , nixpkgs
-    , cells
-    , latest
-    , flake-utils
-    , flake-compat
-    , devshell
-    , digga
-    , home
-    , microvm
-    , driver
-    , cntr
-    , zeek2nix
-    , vast2nix
-    , threatbus2nix
-    , nixpkgs-hardenedlinux
-    , sops-nix
-    , ragenix
+    {
+      self,
+      nixpkgs,
+      cells,
+      latest,
+      flake-compat,
+      devshell,
+      digga,
+      home,
+      microvm,
+      nomad-driver,
+      nomad,
+      cntr,
+      zeek2nix,
+      vast2nix,
+      threatbus2nix,
+      nixpkgs-hardenedlinux,
+      sops-nix,
+      ragenix,
     }:
       digga.lib.mkFlake {
         inherit self inputs;
         # Supported systems, used for packages, apps, devShell and multiple other definitions. Defaults to `flake-utils.lib.defaultSystems`
-        supportedSystems = [ "x86_64-linux" ];
+        supportedSystems = ["x86_64-linux"];
         channels = import ./channels { inherit self inputs; };
         channelsConfig = {
           allowBroken = true;

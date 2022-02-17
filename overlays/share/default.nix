@@ -1,6 +1,7 @@
-{ self
-, inputs
-, ...
+{
+  self,
+  inputs,
+  ...
 }:
 with inputs; [
   # (import ../../pkgs/default.nix)

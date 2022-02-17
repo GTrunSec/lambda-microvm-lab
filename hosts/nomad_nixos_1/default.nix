@@ -1,11 +1,11 @@
-{ suites
-, pkgs
-, lib
-, ...
+{
+  suites,
+  pkgs,
+  lib,
+  ...
 }:
 let
   name = builtins.baseNameOf ./.;
-in
-{
-  imports = suites."${name}" ++ [ ];
+in {
+  imports = suites."${name}" ++ [];
 }

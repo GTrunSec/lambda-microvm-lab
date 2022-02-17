@@ -1,4 +1,5 @@
-{ config
-, ...
+{
+  config,
+  ...
 }:
 { users.users.root.password = ""; }

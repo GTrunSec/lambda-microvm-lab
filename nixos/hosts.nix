@@ -1,10 +1,11 @@
-{ self
-, inputs
-, customModules
-, ...
+{
+  self,
+  inputs,
+  customModules,
+  ...
 }:
 {
-  example = {
+  nomad_nixos_1 = {
     modules = [
       customModules.nomad
     ];

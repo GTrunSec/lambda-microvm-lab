@@ -1,14 +1,14 @@
-{ config
-, lib
-, pkgs
-, inputs
-, self
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  self,
+  ...
 }:
 let
   name = builtins.baseNameOf ./.;
-in
-{
+in {
   imports = [
     inputs.microvm.nixosModules.host
   ];

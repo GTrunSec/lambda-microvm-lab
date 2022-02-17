@@ -75,3 +75,12 @@ endpoint = "10.0.0.1:42000"
 broker = false
 pcap.enable = true
 pcap.interface = "eth0"
+
+###############
+# nomad hosts #
+###############
+[nomad_nixos_1.info]
+ipv4 = "127.0.0.1"
+
+[nomad_nixos_1.services.vast]
+endpoint = "127.0.0.1:42000"

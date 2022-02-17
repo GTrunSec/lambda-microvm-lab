@@ -8,16 +8,13 @@ channels: inputs: self: let
             let
               inherit (self.nixosConfigurations."${name}") config;
               inherit (config.microvm) hypervisor;
-            in
-              "${config.microvm.runner."${hypervisor}"}/bin/microvm-run";
+            in "${config.microvm.runner."${hypervisor}"}/bin/microvm-run";
         };
         name = "${name}";
       }
     ) (builtins.attrNames self.nixosConfigurations)
   );
-in
-  {
-    apps = { } // mkApp;
-    packages.microvm-kernel = channels.nixpkgs.microvm-kernel;
-    packages.qemu = self.nixosConfigurations.tap_qemu_host.pkgs.qemu;
-  }
+in {
+  apps = {} // mkApp;
+  packages.microvm-kernel = channels.nixpkgs.microvm-kernel;
+}
