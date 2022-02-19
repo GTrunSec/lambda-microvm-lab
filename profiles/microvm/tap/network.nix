@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   networking.firewall.allowedTCPPorts = [22];
   networking.interfaces.eth0.ipv4.addresses = [
     {

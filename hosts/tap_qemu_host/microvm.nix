@@ -5,8 +5,7 @@
   inputs,
   self,
   ...
-}:
-let
+}: let
   name = builtins.baseNameOf ./.;
 in {
   imports = [

@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   info = lib.our.getHostInfo ./.;
 in {
   microvm = {

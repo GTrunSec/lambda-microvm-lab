@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   systemd.network = {
     enable = true;
     netdevs.virbr0.netdevConfig = {

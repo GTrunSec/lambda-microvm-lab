@@ -3,8 +3,7 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   user = builtins.baseNameOf ./.;
 in {
   # home-manager.users = { inherit (hmUsers) admin; };

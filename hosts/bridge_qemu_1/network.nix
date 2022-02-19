@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   networking = {
     #interfaces.eth0.useDHCP = true;
     # interfaces.eth0.useDHCP = true;

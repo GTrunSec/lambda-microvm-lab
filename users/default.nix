@@ -2,8 +2,7 @@
   self,
   inputs,
   ...
-}:
-{
+}: {
   #################################
   # home-manager Users's Profiles #
   #################################
@@ -11,17 +10,12 @@
   modules = [];
   importables = rec {
     profiles = inputs.digga.lib.rakeLeaves ./profiles;
-    suites = with profiles; rec { base = []; };
+    suites = with profiles; rec {base = [];};
   };
   users = {
-    admin =
-      {
-        suites,
-        ...
-      }:
-      {
-        imports = suites.base;
-        home.enableNixpkgsReleaseCheck = false;
-      };
+    admin = {suites, ...}: {
+      imports = suites.base;
+      home.enableNixpkgsReleaseCheck = false;
+    };
   };
 }

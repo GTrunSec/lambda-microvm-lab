@@ -3,5 +3,4 @@
   lib,
   pkgs,
   ...
-}:
-{ services.zeek = { enable = true; }; }
+}: {services.zeek = {enable = true;};}

@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   name = builtins.baseNameOf ./.;
   hypervisor = (builtins.head (builtins.split "-" name));
 in {

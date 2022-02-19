@@ -4,11 +4,10 @@ channels: inputs: self: let
       name: {
         value = {
           type = "app";
-          program =
-            let
-              inherit (self.nixosConfigurations."${name}") config;
-              inherit (config.microvm) hypervisor;
-            in "${config.microvm.runner."${hypervisor}"}/bin/microvm-run";
+          program = let
+            inherit (self.nixosConfigurations."${name}") config;
+            inherit (config.microvm) hypervisor;
+          in "${config.microvm.runner."${hypervisor}"}/bin/microvm-run";
         };
         name = "${name}";
       }

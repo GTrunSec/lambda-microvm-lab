@@ -20,8 +20,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    sops-nix = { url = "github:Mic92/sops-nix"; };
-    vast2nix = { url = "github:gtrunsec/vast2nix"; };
+    sops-nix = {url = "github:Mic92/sops-nix";};
+    vast2nix = {url = "github:gtrunsec/vast2nix";};
     nomad-driver = {
       url = "github:input-output-hk/nomad-driver-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,45 +34,43 @@
     cntr.url = "github:gtrunsec/cntr/flake";
     cntr.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs =
-    inputs @
-    {
-      self,
-      nixpkgs,
-      cells,
-      latest,
-      flake-compat,
-      devshell,
-      digga,
-      home,
-      microvm,
-      nomad-driver,
-      nomad,
-      cntr,
-      zeek2nix,
-      vast2nix,
-      threatbus2nix,
-      nixpkgs-hardenedlinux,
-      sops-nix,
-      ragenix,
-    }:
-      digga.lib.mkFlake {
-        inherit self inputs;
-        # Supported systems, used for packages, apps, devShell and multiple other definitions. Defaults to `flake-utils.lib.defaultSystems`
-        supportedSystems = ["x86_64-linux"];
-        channels = import ./channels { inherit self inputs; };
-        channelsConfig = {
-          allowBroken = true;
-          allowUnfree = true;
-        };
-        lib = import ./lib { lib = digga.lib // nixpkgs.lib; };
-        sharedOverlays = import ./overlays/share { inherit self inputs; };
-        devshell = ./devshell;
-        nixos = ./nixos;
-        home = ./users;
-        ########################
-        # # Builder Packages   #
-        ########################
-        outputsBuilder = channels: import ./pkgs/output-builder channels inputs self;
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    cells,
+    latest,
+    flake-compat,
+    devshell,
+    digga,
+    home,
+    microvm,
+    nomad-driver,
+    nomad,
+    cntr,
+    zeek2nix,
+    vast2nix,
+    threatbus2nix,
+    nixpkgs-hardenedlinux,
+    sops-nix,
+    ragenix,
+  }:
+    digga.lib.mkFlake {
+      inherit self inputs;
+      # Supported systems, used for packages, apps, devShell and multiple other definitions. Defaults to `flake-utils.lib.defaultSystems`
+      supportedSystems = ["x86_64-linux"];
+      channels = import ./channels {inherit self inputs;};
+      channelsConfig = {
+        allowBroken = true;
+        allowUnfree = true;
       };
+      lib = import ./lib {lib = digga.lib // nixpkgs.lib;};
+      sharedOverlays = import ./overlays/share {inherit self inputs;};
+      devshell = ./devshell;
+      nixos = ./nixos;
+      home = ./users;
+      ########################
+      # # Builder Packages   #
+      ########################
+      outputsBuilder = channels: import ./pkgs/output-builder channels inputs self;
+    };
 }

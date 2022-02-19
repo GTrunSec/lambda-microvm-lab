@@ -1,4 +1,4 @@
-{ lib }:
+{lib}:
 lib.makeExtensible (
   self: {
     getHostInfo = dirName: rec {

@@ -2,8 +2,7 @@
   inputs,
   pkgs,
   ...
-}:
-{
+}: {
   modules = with inputs; [];
   exportedModules = [
     ./commands.toml

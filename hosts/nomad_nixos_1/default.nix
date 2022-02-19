@@ -3,8 +3,7 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   name = builtins.baseNameOf ./.;
 in {
   imports = suites."${name}" ++ [];

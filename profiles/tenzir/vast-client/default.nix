@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   services.vast-client = {
     enable = true;
     settings.vast.endpoint = config.machine.services.vast-client.endpoint;

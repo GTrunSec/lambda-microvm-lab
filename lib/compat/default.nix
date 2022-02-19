@@ -9,6 +9,6 @@ let
         }.tar.gz";
         sha256 = lock.nodes.flake-compat.locked.narHash;
       }
-  ) { src = ../..; };
+  ) {src = ../..;};
 in
   flake
