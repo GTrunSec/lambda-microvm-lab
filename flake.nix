@@ -58,15 +58,22 @@
       inherit self inputs;
       # Supported systems, used for packages, apps, devShell and multiple other definitions. Defaults to `flake-utils.lib.defaultSystems`
       supportedSystems = ["x86_64-linux"];
+
       channels = import ./channels {inherit self inputs;};
+
       channelsConfig = {
         allowBroken = true;
         allowUnfree = true;
       };
+
       lib = import ./lib {lib = digga.lib // nixpkgs.lib;};
+
       sharedOverlays = import ./overlays/share {inherit self inputs;};
+
       devshell = ./devshell;
+
       nixos = ./nixos;
+
       home = ./users;
       ########################
       # # Builder Packages   #

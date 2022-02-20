@@ -28,7 +28,7 @@ with inputs.nixpkgs; rec {
     # Bridge Hosts #
     ################
     bridge_qemu_1 = base ++ [tenzir.vast];
-    firecracker_bridge_1 =
+    bridge_firecracker_1 =
       base
       ++ [
         tenzir.vast
