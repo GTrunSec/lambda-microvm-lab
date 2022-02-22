@@ -1,5 +1,5 @@
 [devshell]
-packages = [ "nomad" ]
+packages = [ ]
 [[commands]]
 name = "microvm-firecracker-bridge"
 category = "bridge"

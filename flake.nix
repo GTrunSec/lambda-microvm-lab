@@ -26,10 +26,6 @@
       url = "github:input-output-hk/nomad-driver-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nomad = {
-      url = "github:input-output-hk/nomad/release-1.2.2";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     #cntr.url = "github:Mic92/cntr";
     cntr.url = "github:gtrunsec/cntr/flake";
     cntr.inputs.nixpkgs.follows = "nixpkgs";
@@ -45,7 +41,6 @@
     home,
     microvm,
     nomad-driver,
-    nomad,
     cntr,
     zeek2nix,
     vast2nix,
@@ -56,7 +51,7 @@
   }:
     digga.lib.mkFlake {
       inherit self inputs;
-      # Supported systems, used for packages, apps, devShell and multiple other definitions. Defaults to `flake-utils.lib.defaultSystems`
+
       supportedSystems = ["x86_64-linux"];
 
       channels = import ./channels {inherit self inputs;};
