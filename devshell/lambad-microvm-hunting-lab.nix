@@ -3,5 +3,5 @@
   extraModulesPath,
   ...
 }: {
-  packages = [pkgs.cntr];
+  packages = [];
 }

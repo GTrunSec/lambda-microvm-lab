@@ -21,10 +21,6 @@
           (inputs.microvm.packages."${prev.stdenv.hostPlatform.system}")
           microvm-kernel
           ;
-        inherit
-          (inputs.cntr.packages."${prev.stdenv.hostPlatform.system}")
-          cntr
-          ;
       }
     )
   ];

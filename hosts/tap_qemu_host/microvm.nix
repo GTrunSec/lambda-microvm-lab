@@ -21,7 +21,7 @@ in {
     {
       mountPoint = "/var";
       image = "/tmp/${name}.img";
-      size = 32;
+      size = 512;
     }
   ];
   # we prefer to use firecracker as containter

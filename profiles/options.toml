@@ -65,7 +65,7 @@ pcap.interface = "eth0"
 
 
 [tap_cloud-hypervisor_2.info]
-ipv4 = "10.0.0.2"
+ipv4 = "10.0.0.4"
 
 [tap_cloud-hypervisor_2.services.vast]
 endpoint = "10.0.0.4:42000"

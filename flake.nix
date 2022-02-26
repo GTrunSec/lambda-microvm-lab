@@ -7,6 +7,7 @@
   };
   inputs = {
     flake-compat.flake = false;
+    nixpkgs.url = "github:NixOS/nixpkgs/release-21.11";
     # microvm.url = "github:GTrunSec/microvm.nix/interface";
     microvm.url = "/home/gtrun/ghq/github.com/astro/microvm.nix";
     microvm.inputs.nixpkgs.follows = "nixpkgs";
@@ -26,9 +27,6 @@
       url = "github:input-output-hk/nomad-driver-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    #cntr.url = "github:Mic92/cntr";
-    cntr.url = "github:gtrunsec/cntr/flake";
-    cntr.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs = inputs @ {
     self,
@@ -41,7 +39,6 @@
     home,
     microvm,
     nomad-driver,
-    cntr,
     zeek2nix,
     vast2nix,
     threatbus2nix,
