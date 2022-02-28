@@ -12,11 +12,13 @@ in {
     inputs.microvm.nixosModules.host
   ];
 
+
   microvm = {
     mem = 8192;
     vcpu = 6;
     socket = "/tmp/${name}.sock";
   };
+
   microvm.volumes = [
     {
       mountPoint = "/var";

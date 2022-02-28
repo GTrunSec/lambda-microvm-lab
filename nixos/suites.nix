@@ -11,22 +11,28 @@ with inputs.nixpkgs; rec {
       users = digga.lib.rakeLeaves ../users;
       tenzir = digga.lib.rakeLeaves ../profiles/tenzir;
       microvm = digga.lib.rakeLeaves ../profiles/microvm;
+      ssh = digga.lib.rakeLeaves ../profiles/ssh;
     };
   ##################
   # Profiles Tags  #
   ##################
   suites = with profiles; rec {
-    base = [core users.root users.admin ssh];
+    base = [core users.root users.admin ssh.core];
     ################
     # Tap Hosts    #
     ################
     tap_common = [microvm.common];
-    tap_qemu_host = base ++ [tenzir.vast tap_common];
-    tap_qemu_1 = base ++ [tenzir.vast-client microvm.tap tap_common];
-    tap_qemu_2 = base ++ [tenzir.vast-client microvm.tap tap_common];
-    tap_firecracker_1 = base ++ [tenzir.vast-client microvm.tap tap_common];
-    tap_cloud-hypervisor_1 = base ++ [tenzir.vast-client microvm.tap tap_common];
-    tap_cloud-hypervisor_2 = base ++ [tenzir.vast-client microvm.tap tap_common];
+    tap_client = [
+      tenzir.vast-client
+      ssh.client
+      microvm.tap-client
+    ];
+    tap_qemu_host = base ++ [ssh.host tap_common tenzir.vast];
+    tap_qemu_1 = base ++ [tap_client tap_common ];
+    tap_qemu_2 = base ++ [tap_client tap_common ];
+    tap_firecracker_1 = base ++ [tap_client tap_common];
+    tap_cloud-hypervisor_1 = base ++ [tap_client tap_common];
+    tap_cloud-hypervisor_2 = base ++ [tap_client tap_common];
     ################
     # Bridge Hosts #
     ################
