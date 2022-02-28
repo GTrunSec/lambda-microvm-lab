@@ -4543,11 +4543,11 @@
     },
     "flake-utils_71": {
       "locked": {
-        "lastModified": 1638122382,
-        "narHash": "sha256-sQzZzAbvKEqN9s0bzWuYmRaA03v40gaJ4+iL1LXjaeI=",
+        "lastModified": 1644229661,
+        "narHash": "sha256-1YdnJAsNy69bpcjuoKdOYQX0YxZBiCYZo4Twxerqv7k=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "74f7e4319258e287b0f9cb95426c9853b282730b",
+        "rev": "3cecb5b042f7f209c56ffd8371b2711a290ec797",
         "type": "github"
       },
       "original": {
@@ -6597,11 +6597,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1645846147,
-        "narHash": "sha256-Z/UUZKZUugYgatU0yVRzC16sjMsTyFiTPs6aWWNEWVA=",
+        "lastModified": 1646004706,
+        "narHash": "sha256-wu5oXaVEuqSXGAqw4utL7m5GLnY3e35qgX6sVJnmZFE=",
         "ref": "HEAD",
-        "rev": "277a1988ac3ba0e6e71412ff2c981aebd677e1bc",
-        "revCount": 196,
+        "rev": "f4360f67325b7beddb84ab2f4854f86171860130",
+        "revCount": 211,
         "type": "git",
         "url": "file:///home/gtrun/ghq/github.com/astro/microvm.nix"
       },
@@ -12779,11 +12779,11 @@
         "zeek2nix": "zeek2nix_7"
       },
       "locked": {
-        "lastModified": 1645130332,
-        "narHash": "sha256-Rd5zbUXl8JMoq44CG011YvuagvwUDTeRWMEDXxzkr+4=",
+        "lastModified": 1645922370,
+        "narHash": "sha256-3tYVApR1eYnkkntI3IM4cJQU1FhV7WDG70P/sZYKlfQ=",
         "owner": "gtrunsec",
         "repo": "vast2nix",
-        "rev": "fcb367dc256b2ac7a8144b8a9a8f7f484d622e54",
+        "rev": "edc2df47309f83c58ba14722466759d55ab76695",
         "type": "github"
       },
       "original": {

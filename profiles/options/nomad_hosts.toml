@@ -1,0 +1,5 @@
+[nomad_nixos_1.info]
+ipv4 = "127.0.0.1"
+
+[nomad_nixos_1.services.vast]
+endpoint = "127.0.0.1:42000"

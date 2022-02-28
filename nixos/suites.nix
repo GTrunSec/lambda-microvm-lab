@@ -20,10 +20,13 @@ with inputs.nixpkgs; rec {
     ################
     # Tap Hosts    #
     ################
-    tap_qemu_host = base ++ [tenzir.vast];
-    tap_firecracker_1 = base ++ [tenzir.vast-client microvm.tap];
-    tap_cloud-hypervisor_1 = base ++ [tenzir.vast-client microvm.tap];
-    tap_cloud-hypervisor_2 = base ++ [tenzir.vast-client microvm.tap];
+    tap_common = [ microvm.common ];
+    tap_qemu_host = base ++ [tenzir.vast tap_common];
+    tap_qemu_1 = base ++ [tenzir.vast-client microvm.tap tap_common];
+    tap_qemu_2 = base ++ [tenzir.vast-client microvm.tap tap_common];
+    tap_firecracker_1 = base ++ [tenzir.vast-client microvm.tap tap_common];
+    tap_cloud-hypervisor_1 = base ++ [tenzir.vast-client microvm.tap tap_common];
+    tap_cloud-hypervisor_2 = base ++ [tenzir.vast-client microvm.tap tap_common];
     ################
     # Bridge Hosts #
     ################
