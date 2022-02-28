@@ -22,7 +22,7 @@ in {
     volumes = [
       {
         mountPoint = "/var";
-        image = "${info.name}.img";
+        image = "/tmo/${info.name}.img";
         size = 256;
       }
     ];

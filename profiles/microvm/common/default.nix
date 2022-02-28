@@ -1,5 +1,8 @@
-{ config, lib, pkgs, ... }:
-
 {
-  imports = [ ./microvm.nix ];
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = [./microvm.nix];
 }

@@ -16,11 +16,11 @@ with inputs.nixpkgs; rec {
   # Profiles Tags  #
   ##################
   suites = with profiles; rec {
-    base = [core users.root users.admin];
+    base = [core users.root users.admin ssh];
     ################
     # Tap Hosts    #
     ################
-    tap_common = [ microvm.common ];
+    tap_common = [microvm.common];
     tap_qemu_host = base ++ [tenzir.vast tap_common];
     tap_qemu_1 = base ++ [tenzir.vast-client microvm.tap tap_common];
     tap_qemu_2 = base ++ [tenzir.vast-client microvm.tap tap_common];
