@@ -13056,11 +13056,11 @@
         "spicy2nix": "spicy2nix_8"
       },
       "locked": {
-        "lastModified": 1645049916,
-        "narHash": "sha256-M/hicV5bU0lwIw/scBwCoNPgNlEvE9QVCTOMR7HFy0o=",
+        "lastModified": 1645922865,
+        "narHash": "sha256-64XJltoP76RZWZvMjz9RuuOIxQFXilbI4XVPGOydawk=",
         "owner": "hardenedlinux",
         "repo": "zeek2nix",
-        "rev": "fd1a1a88047f05a63c4c4641847b4de64b0fa757",
+        "rev": "7d16bfd6f7053d9c4a565bb5187ec952bbcd2fbb",
         "type": "github"
       },
       "original": {

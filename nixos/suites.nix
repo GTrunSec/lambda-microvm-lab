@@ -12,6 +12,7 @@ with inputs.nixpkgs; rec {
       tenzir = digga.lib.rakeLeaves ../profiles/tenzir;
       microvm = digga.lib.rakeLeaves ../profiles/microvm;
       ssh = digga.lib.rakeLeaves ../profiles/ssh;
+      zeek = digga.lib.rakeLeaves ../profiles/zeek;
       secrets = digga.lib.rakeLeaves ../profiles/secrets;
     };
   ##################
@@ -29,7 +30,7 @@ with inputs.nixpkgs; rec {
       microvm.tap-client
     ];
     tap_qemu_host = base ++ [ssh.host tap_common tenzir.vast];
-    tap_qemu_1 = base ++ [tap_client tap_common];
+    tap_qemu_1 = base ++ [tap_client tap_common zeek.sensor];
     tap_qemu_2 = base ++ [tap_client tap_common];
     tap_firecracker_1 = base ++ [tap_client tap_common];
     tap_cloud-hypervisor_1 = base ++ [tap_client tap_common];
@@ -38,7 +39,7 @@ with inputs.nixpkgs; rec {
     # Bridge Hosts #
     ################
     bridge_common = [microvm.bridge];
-    bridge_qemu_tap = base ++ [tenzir.vast microvm.common bridge_common ssh.host secrets.age];
+    bridge_qemu_tap = base ++ [tenzir.vast microvm.common bridge_common ssh.host secrets.age zeek.cluster];
     bridge_qemu_2 = base ++ [tenzir.vast microvm.common];
     bridge_firecracker_1 =
       base
