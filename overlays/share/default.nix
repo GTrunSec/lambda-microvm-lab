@@ -19,5 +19,5 @@ with inputs; [
   # Custom Overlays #
   ###################
   ###################
-  sops-nix.overlay
+  ragenix.overlay
 ]

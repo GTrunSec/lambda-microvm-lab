@@ -3,5 +3,5 @@
   extraModulesPath,
   ...
 }: {
-  packages = [];
+  packages = [pkgs.ragenix];
 }

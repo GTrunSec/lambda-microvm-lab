@@ -12,6 +12,7 @@ with inputs.nixpkgs; rec {
       tenzir = digga.lib.rakeLeaves ../profiles/tenzir;
       microvm = digga.lib.rakeLeaves ../profiles/microvm;
       ssh = digga.lib.rakeLeaves ../profiles/ssh;
+      secrets = digga.lib.rakeLeaves ../profiles/secrets;
     };
   ##################
   # Profiles Tags  #
@@ -37,7 +38,7 @@ with inputs.nixpkgs; rec {
     # Bridge Hosts #
     ################
     bridge_common = [microvm.bridge];
-    bridge_qemu_tap = base ++ [tenzir.vast microvm.common bridge_common];
+    bridge_qemu_tap = base ++ [tenzir.vast microvm.common bridge_common ssh.host secrets.age];
     bridge_qemu_2 = base ++ [tenzir.vast microvm.common];
     bridge_firecracker_1 =
       base

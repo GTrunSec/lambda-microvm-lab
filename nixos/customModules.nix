@@ -7,7 +7,7 @@ with inputs; {
     threatbus2nix.nixosModules.threatbus
     threatbus2nix.nixosModules.threatbus-vast
   ];
-  secrets = [sops-nix.nixosModules.sops ragenix.nixosModules.age];
+  secrets = [ragenix.nixosModules.age];
 
   nomad = [
     nomad-driver.nixosModules.nix-driver-nomad
