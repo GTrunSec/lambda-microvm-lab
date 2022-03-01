@@ -12,7 +12,6 @@ in {
     inputs.microvm.nixosModules.host
   ];
 
-
   microvm = {
     mem = 8192;
     vcpu = 6;
@@ -32,10 +31,10 @@ in {
     updateFlake = "microvm";
   };
   #10.0.0.6
-  microvm.vms."tap_qemu_2" = {
-    flake = self;
-    updateFlake = "microvm";
-  };
+  # microvm.vms."tap_qemu_2" = {
+  #   flake = self;
+  #   updateFlake = "microvm";
+  # };
   # microvm.vms."tap_firecracker_1" = {
   #   flake = self;
   #   updateFlake = "microvm";

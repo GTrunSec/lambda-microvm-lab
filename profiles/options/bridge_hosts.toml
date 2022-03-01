@@ -1,14 +1,36 @@
-[bridge_qemu_1.info]
+[bridge_qemu_tap.info]
 ipv4 = "192.168.122.100"
+bridge = "enp0s6"
+defaultGateway = "192.168.122.1"
 
-[bridge_qemu_1.services.vast]
+[bridge_qemu_tap.services.vast]
 endpoint = "192.168.122.100:42000"
 
-[bridge_qemu_1.services.vast-client]
+[bridge_qemu_tap.services.vast-client]
 endpoint = "10.0.0.1:42000"
 broker = true
 pcap.enable = false
 pcap.interface = "eth0"
+
+#####
+# 2 #
+#####
+[bridge_qemu_2.info]
+ipv4 = "192.168.122.101"
+bridge = "enp0s6"
+defaultGateway = "192.168.122.1"
+
+[bridge_qemu_2.services.vast]
+endpoint = "192.168.122.100:42000"
+
+[bridge_qemu_2.services.vast-client]
+endpoint = "192.168.122.100:42000"
+broker = true
+pcap.enable = false
+pcap.interface = "eth0"
+
+
+
 
 [bridge_firecracker_1.info]
 ip = "10.0.0.4"

@@ -6,7 +6,7 @@
 }: {
   services.openssh = {
     enable = true;
-    #passwordAuthentication = false;
+    passwordAuthentication = false;
     permitRootLogin = "yes";
   };
 }

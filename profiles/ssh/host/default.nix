@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   #   programs.ssh.extraConfig = ''
   #   UserKnownHostsFile=/dev/null
   #   StrictHostKeyChecking=no

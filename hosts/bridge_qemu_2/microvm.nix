@@ -11,7 +11,7 @@ in {
     interfaces = [
       {
         type = "bridge";
-        bridge = "virbr0";
+        bridge = "enp0s6";
         id = "vm-${builtins.substring 0 4 "${info.hypervisor}"}${info.id}";
         mac = "00:02:00:01:01:0${info.id}";
       }
@@ -22,8 +22,20 @@ in {
     volumes = [
       {
         mountPoint = "/var";
-        image = "/tmo/${info.name}.img";
-        size = 256;
+        image = "${info.name}.img";
+        size = 1024;
+      }
+    ];
+  };
+
+  networking = {
+    useDHCP = false;
+    defaultGateway = config.machine.info.defaultGateway;
+    nameservers = ["1.1.1.1" "8.8.8.8"];
+    interfaces."${config.machine.info.bridge}".ipv4.addresses = [
+      {
+        address = config.machine.info.ipv4;
+        prefixLength = 24;
       }
     ];
   };

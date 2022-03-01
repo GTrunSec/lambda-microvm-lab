@@ -15,8 +15,8 @@
       # Hand out IP addresses to MicroVMs.
       # Use `networkctl status virbr0` to see leases.
       networkConfig = {
-        DHCPServer = false;
-        IPv6SendRA = false;
+        DHCPServer = true;
+        IPv6SendRA = true;
       };
       addresses = [
         {

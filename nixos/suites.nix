@@ -28,15 +28,16 @@ with inputs.nixpkgs; rec {
       microvm.tap-client
     ];
     tap_qemu_host = base ++ [ssh.host tap_common tenzir.vast];
-    tap_qemu_1 = base ++ [tap_client tap_common ];
-    tap_qemu_2 = base ++ [tap_client tap_common ];
+    tap_qemu_1 = base ++ [tap_client tap_common];
+    tap_qemu_2 = base ++ [tap_client tap_common];
     tap_firecracker_1 = base ++ [tap_client tap_common];
     tap_cloud-hypervisor_1 = base ++ [tap_client tap_common];
     tap_cloud-hypervisor_2 = base ++ [tap_client tap_common];
     ################
     # Bridge Hosts #
     ################
-    bridge_qemu_1 = base ++ [tenzir.vast];
+    bridge_qemu_1 = base ++ [tenzir.vast microvm.common];
+    bridge_qemu_2 = base ++ [tenzir.vast microvm.common];
     bridge_firecracker_1 =
       base
       ++ [
