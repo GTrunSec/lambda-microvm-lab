@@ -6615,7 +6615,10 @@
       },
       "locked": {
         "lastModified": 1646091528,
-        "narHash": "sha256-uKTrb/9gdYPCVh0ZvTsnsEH6p+ePsNM8wtfOcTu0IFw=",
+        "narHash": "sha256-LmEcie7jgj8eyRGjjcLkF0tLqcJtdMIFoXCShHblGuk=",
+        "ref": "HEAD",
+        "rev": "b542eb3577d86c5c7295a348b448aaae8135a9b8",
+        "revCount": 215,
         "type": "git",
         "url": "file:///home/gtrun/ghq/github.com/astro/microvm.nix"
       },

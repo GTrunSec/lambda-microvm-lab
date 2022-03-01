@@ -36,7 +36,8 @@ with inputs.nixpkgs; rec {
     ################
     # Bridge Hosts #
     ################
-    bridge_qemu_1 = base ++ [tenzir.vast microvm.common];
+    bridge_common = [microvm.bridge];
+    bridge_qemu_tap = base ++ [tenzir.vast microvm.common bridge_common];
     bridge_qemu_2 = base ++ [tenzir.vast microvm.common];
     bridge_firecracker_1 =
       base
