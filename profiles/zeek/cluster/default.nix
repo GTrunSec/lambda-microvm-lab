@@ -1,10 +1,10 @@
-{ config
-, lib
-, pkgs
-, ...
-}:
 {
-  users.users.root.openssh.authorizedKeys.keys = [ ];
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  users.users.root.openssh.authorizedKeys.keys = [];
   services.zeek = {
     enable = true;
     node = ''
@@ -32,13 +32,13 @@
       type=worker
       host=${config.machine.services.zeek.sensor.worker_2.host}
       interface=af_packet::${
-      config.machine.services.zeek.sensor.worker_2.interface
-    }
+        config.machine.services.zeek.sensor.worker_2.interface
+      }
       lb_method=custom
       lb_procs=2
       pin_cpus=0,1,2
     '';
-    package = pkgs.zeek-release.override { };
+    package = pkgs.zeek-release.override {};
     # privateScript = ''
     #  '';
   };

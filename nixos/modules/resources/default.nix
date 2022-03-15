@@ -15,7 +15,7 @@
         builtins.listToAttrs (
           map (
             conf: {
-              value = (lib.importTOML (dir + "/${conf}"));
+              value = lib.importTOML (dir + "/${conf}");
               name = lib.removeSuffix ".toml" conf;
             }
           )

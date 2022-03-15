@@ -8,9 +8,9 @@
   inputs = {
     flake-compat.flake = false;
     nixpkgs.url = "github:NixOS/nixpkgs/release-21.11";
-    # microvm.url = "github:GTrunSec/microvm.nix/interface";
-    microvm.url = "/home/gtrun/ghq/github.com/astro/microvm.nix";
+    microvm.url = "github:astro/microvm.nix";
     microvm.inputs.nixpkgs.follows = "nixpkgs";
+    #microvm.url = "/home/gtrun/ghq/github.com/astro/microvm.nix";
     cells.url = "github:gtrunsec/DevSecOps-cells";
     digga = {
       url = "github:divnix/digga";

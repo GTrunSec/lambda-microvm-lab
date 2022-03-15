@@ -5,7 +5,7 @@
   ...
 }: let
   name = builtins.baseNameOf ./.;
-  hypervisor = (builtins.head (builtins.split "-" name));
+  hypervisor = builtins.head (builtins.split "-" name);
 in {
   microvm = {
     inherit hypervisor;

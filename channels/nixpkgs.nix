@@ -23,5 +23,6 @@
           ;
       }
     )
+    inputs.sops-nix.overlay
   ];
 }
