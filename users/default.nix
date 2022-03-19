@@ -10,7 +10,7 @@
   modules = [];
   importables = rec {
     profiles = inputs.digga.lib.rakeLeaves ./profiles;
-    suites = with profiles; rec {base = [];};
+    suites = with profiles; rec {base = [zsh];};
   };
   users = {
     admin = {suites, ...}: {
