@@ -17,12 +17,9 @@
           (inputs.vast2nix.packages."${prev.stdenv.hostPlatform.system}")
           vast-release
           ;
-        inherit
-          (inputs.microvm.packages."${prev.stdenv.hostPlatform.system}")
-          microvm-kernel
-          ;
       }
     )
+    inputs.microvm.overlay
     inputs.sops-nix.overlay
   ];
 }
