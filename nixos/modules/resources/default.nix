@@ -7,7 +7,7 @@
   dir = ../../../profiles/options;
   DirNames = builtins.attrNames (builtins.readDir dir);
   machine = let
-    mode = (builtins.elemAt (builtins.split "_" config.networking.hostName) 0) + "_hosts";
+    mode = (builtins.elemAt (builtins.split "-" config.networking.hostName) 0) + "-hosts";
   in
     (
       {}

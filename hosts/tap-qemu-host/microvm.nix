@@ -26,12 +26,12 @@ in {
     }
   ];
   # 10.0.0.5
-  microvm.vms."tap_qemu_1" = {
+  microvm.vms."tap-qemu-1" = {
     flake = self;
     updateFlake = "microvm";
   };
   #10.0.0.6
-  # microvm.vms."tap_qemu_2" = {
+  # microvm.vms."tap-qemu-2" = {
   #   flake = self;
   #   updateFlake = "microvm";
   # };

@@ -34,12 +34,12 @@ in {
     ];
   };
 
-  microvm.vms."tap_qemu_1" = {
+  microvm.vms."tap-qemu-1" = {
     flake = self;
     updateFlake = "microvm";
   };
-  # microvm.vms."bridge_qemu_2" = {
-  #   flake = self;
-  #   updateFlake = "microvm";
-  # };
+  microvm.vms."bridge-qemu-2" = {
+    flake = self;
+    updateFlake = "microvm";
+  };
 }

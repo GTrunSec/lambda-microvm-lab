@@ -6,5 +6,5 @@
 }: let
   name = builtins.baseNameOf ./.;
 in {
-  imports = suites."${name}" ++ [./microvm.nix ../tap_qemu_host/network.nix];
+  imports = suites."${name}" ++ [./microvm.nix ../tap-qemu-host/network.nix];
 }

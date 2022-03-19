@@ -1,38 +1,38 @@
-[bridge_qemu_tap.info]
+[bridge-qemu-tap.info]
 ipv4 = "192.168.122.100"
 bridge = "enp0s6"
 defaultGateway = "192.168.122.1"
 microvm.interfaces.bridge = "virbr0"
 
-[bridge_qemu_tap.services.vast]
+[bridge-qemu-tap.services.vast]
 endpoint = "192.168.122.100:42000"
 
-[bridge_qemu_tap.services.vast-client]
+[bridge-qemu-tap.services.vast-client]
 endpoint = "10.0.0.1:42000"
 broker = true
 pcap.enable = false
 pcap.interface = "eth0"
 
-[bridge_qemu_tap.services.zeek]
+[bridge-qemu-tap.services.zeek]
 host = "localhost"
 interface = "enp0s6"
 cluster = "192.168.122.100"
 
-[bridge_qemu_tap.services.zeek.sensor.worker_2]
+[bridge-qemu-tap.services.zeek.sensor.worker_2]
 host = "10.0.0.5"
 interface = "eth0"
 #####
 # 2 #
 #####
-[bridge_qemu_2.info]
+[bridge-qemu-2.info]
 ipv4 = "192.168.122.101"
 bridge = "enp0s6"
 defaultGateway = "192.168.122.1"
 
-[bridge_qemu_2.services.vast]
+[bridge-qemu-2.services.vast]
 endpoint = "192.168.122.100:42000"
 
-[bridge_qemu_2.services.vast-client]
+[bridge-qemu-2.services.vast-client]
 endpoint = "192.168.122.100:42000"
 broker = true
 pcap.enable = false
@@ -41,13 +41,13 @@ pcap.interface = "eth0"
 
 
 
-[bridge_firecracker_1.info]
+[bridge-firecracker_1.info]
 ip = "10.0.0.4"
 
-[bridge_firecracker_1.services.vast]
+[bridge-firecracker_1.services.vast]
 endpoint = "10.0.0.4:42000"
 
-[bridge_firecracker_1.services.vast-client]
+[bridge-firecracker_1.services.vast-client]
 endpoint = "10.0.0.1:42000"
 broker = true
 pcap.enable = false

@@ -10,7 +10,7 @@ help = "run microvm of firecracker"
 name = "microvm-qemu-bridge"
 category = "hosts"
 command = '''
-        nix run .#bridge_qemu_tap --print-build-logs
+        nix run .#bridge-qemu-tap --print-build-logs
         '''
 help = "run microvm of qemu-bridge | root required"
 
@@ -18,7 +18,7 @@ help = "run microvm of qemu-bridge | root required"
 name = "microvm-qemu-tap"
 category = "hosts"
 command = '''
-        nix run .#tap_qemu_host --print-build-logs
+        nix run .#tap-qemu-host --print-build-logs
         '''
 help = "run microvm of qemu-host"
 

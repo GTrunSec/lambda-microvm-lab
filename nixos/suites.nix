@@ -23,25 +23,25 @@ with inputs.nixpkgs; rec {
     ################
     # Tap Hosts    #
     ################
-    tap_common = [microvm.common];
-    tap_client = [
+    tap-common = [microvm.common];
+    tap-client = [
       tenzir.vast-client
       ssh.client
       microvm.tap-client
     ];
-    tap_qemu_host = base ++ [ssh.host tap_common tenzir.vast];
-    tap_qemu_1 = base ++ [tap_client tap_common zeek.sensor];
-    tap_qemu_2 = base ++ [tap_client tap_common];
-    tap_firecracker_1 = base ++ [tap_client tap_common];
-    tap_cloud-hypervisor_1 = base ++ [tap_client tap_common];
-    tap_cloud-hypervisor_2 = base ++ [tap_client tap_common];
+    tap-qemu-host = base ++ [ssh.host tap-common tenzir.vast];
+    tap-qemu-1 = base ++ [tap-client tap-common zeek.sensor];
+    tap-qemu-2 = base ++ [tap-client tap-common];
+    tap-firecracker_1 = base ++ [tap-client tap-common];
+    tap-cloud-hypervisor_1 = base ++ [tap-client tap-common];
+    tap-cloud-hypervisor_2 = base ++ [tap-client tap-common];
     ################
     # Bridge Hosts #
     ################
-    bridge_common = [microvm.bridge];
-    bridge_qemu_tap = base ++ [tenzir.vast microvm.common bridge_common ssh.host secrets.age zeek.cluster];
-    bridge_qemu_2 = base ++ [tenzir.vast microvm.common];
-    bridge_firecracker_1 =
+    bridge-common = [microvm.bridge];
+    bridge-qemu-tap = base ++ [tenzir.vast microvm.common bridge-common ssh.host secrets.age zeek.cluster];
+    bridge-qemu-2 = base ++ [tenzir.vast microvm.common];
+    bridge-firecracker-1 =
       base
       ++ [
         tenzir.vast
@@ -54,6 +54,6 @@ with inputs.nixpkgs; rec {
     ###############
     # nomad hosts #
     ###############
-    nomad_nixos_1 = base ++ [tenzir.vast];
+    nomad-nixos-1 = base ++ [tenzir.vast];
   };
 }
