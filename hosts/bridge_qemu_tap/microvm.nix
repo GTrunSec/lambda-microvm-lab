@@ -17,7 +17,7 @@ in {
     interfaces = [
       {
         type = "bridge";
-        bridge = "virbr0";
+        bridge = config.machine.info.microvm.interfaces.bridge;
         id = "vm-${builtins.substring 0 4 "${info.hypervisor}"}${info.id}";
         mac = "00:02:00:01:01:11";
       }

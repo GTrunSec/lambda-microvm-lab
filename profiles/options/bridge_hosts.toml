@@ -2,6 +2,7 @@
 ipv4 = "192.168.122.100"
 bridge = "enp0s6"
 defaultGateway = "192.168.122.1"
+microvm.interfaces.bridge = "virbr0"
 
 [bridge_qemu_tap.services.vast]
 endpoint = "192.168.122.100:42000"

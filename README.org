@@ -5,13 +5,35 @@
 * Namespace
 ** hosts
 
-rules: *<network mode>_<hypervisor-name><number>*
-example: tap_clould-hypervisor_1 example: bridge_clould-hypervisor_1
++ rules:
+  + <network mode>_<hypervisor-name><number>
+  +
++ example:
+
+|                 |   |   |   |   |
+|-----------------+---+---+---+---|
+| bridge_qemu_tap |   |   |   |   |
+
+
+
 
 
 
 * Micro-vms for Hunting lab testing
 
+** Network Bridge
+
+
+
+- check your local *virbr0* interface
+- modify the network info [[file:profiles/options/bridge_hosts.toml]]
+
+
 #+begin_src sh :async :exports both :results output
-nix develop
+nix develop -c microvm-qemu-bridge
 #+end_src
+
+
+- Users: root, admin
+- Password: ~NONE~
+- Exit: Ctrl-a x
