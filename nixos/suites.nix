@@ -31,7 +31,7 @@ with inputs.nixpkgs; rec {
     ];
     tap-qemu-host = base ++ [ssh.host tap-common tenzir.vast];
     tap-qemu-1 = base ++ [tap-common zeek.sensor];
-    tap-qemu-2 = base ++ [tap-client tap-common];
+    tap-qemu-2 = base ++ [tap-common zeek.sensor];
     tap-firecracker_1 = base ++ [tap-client tap-common];
     tap-cloud-hypervisor_1 = base ++ [tap-client tap-common];
     tap-cloud-hypervisor_2 = base ++ [tap-client tap-common];

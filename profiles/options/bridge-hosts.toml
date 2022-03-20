@@ -15,12 +15,12 @@ pcap.interface = "eth0"
 
 [bridge-qemu-tap.services.zeek]
 host = "localhost"
-interface = "enp0s6"
-cluster = "192.168.122.100"
+interface = "virbr0"
+cluster = "10.0.0.1"
 
 [bridge-qemu-tap.services.zeek.sensor.worker_2]
-host = "10.0.0.5"
-interface = "eth0"
+host = "10.0.0.12"
+interface = "enp0s5"
 #####
 # 2 #
 #####

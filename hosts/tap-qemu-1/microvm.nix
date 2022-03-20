@@ -10,7 +10,7 @@ in {
     hypervisor = info.hypervisor;
     interfaces = [
       {
-        type = "user";
+        type = "tap";
         id = "vm-t${builtins.substring 0 3 "${info.hypervisor}"}${info.id}";
         mac = "00:02:00:01:01:2${info.mac}";
       }

@@ -38,7 +38,7 @@ in {
     flake = self;
     updateFlake = "microvm";
   };
-  microvm.vms."bridge-qemu-2" = {
+  microvm.vms."tap-qemu-2" = {
     flake = self;
     updateFlake = "microvm";
   };

@@ -8,7 +8,7 @@ endpoint = "10.0.0.1:42000"
 # qemu hosts #
 ##############
 [tap-qemu-1.info]
-ipv4 = "10.0.0.5"
+ipv4 = "10.0.0.12"
 
 [tap-qemu-1.services.vast]
 endpoint = "10.0.0.1:42000"
@@ -17,10 +17,10 @@ endpoint = "10.0.0.1:42000"
 endpoint = "10.0.0.1:42000"
 broker = false
 pcap.enable = true
-pcap.interface = "eth0"
+pcap.interface = "enp0s5"
 
 [tap-qemu-2.info]
-ipv4 = "10.0.0.6"
+ipv4 = "10.0.0.47"
 
 [tap-qemu-2.services.vast]
 endpoint = "10.0.0.1:42000"
@@ -29,7 +29,7 @@ endpoint = "10.0.0.1:42000"
 endpoint = "10.0.0.1:42000"
 broker = false
 pcap.enable = true
-pcap.interface = "eth0"
+pcap.interface = "enp0s5"
 
 
 
@@ -47,7 +47,7 @@ endpoint = "10.0.0.2:42000"
 endpoint = "10.0.0.1:42000"
 broker = true
 pcap.enable = false
-pcap.interface = "eth0"
+pcap.interface = "enp0s5"
 
 
 #########################
@@ -63,4 +63,4 @@ endpoint = "10.0.0.3:42000"
 endpoint = "10.0.0.1:42000"
 broker = false
 pcap.enable = true
-pcap.interface = "eth0"
+pcap.interface = "enp0s5"
