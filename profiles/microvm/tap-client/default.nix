@@ -4,5 +4,5 @@
   pkgs,
   ...
 }: {
-  imports = [./network.nix];
+  imports = [./microvm.nix];
 }
