@@ -36,7 +36,7 @@ help = "push qemu to cachix"
 
 
 [[commands]]
-name = "nomad_nixos_1"
+name = "nomad-nixos-1"
 category = "nomad"
-command = "nix build .#nixosConfigurations.nomad_nixos_1.config.system.build.toplevel --print-build-logs"
+command = "nix build .#nixosConfigurations.nomad-nixos-1.config.system.build.toplevel --print-build-logs"
 help = "build nomad_nixos_1"

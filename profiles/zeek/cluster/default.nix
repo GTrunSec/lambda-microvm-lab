@@ -5,6 +5,11 @@
   ...
 }: {
   users.users.root.openssh.authorizedKeys.keys = [];
+
+  systemd.services.zeek = {
+    after = [ "microvm-tap-interfaces@tap-qemu-1.service" ];
+  };
+  
   services.zeek = {
     enable = true;
     node = ''

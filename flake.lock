@@ -8836,11 +8836,11 @@
         "utils": "utils_31"
       },
       "locked": {
-        "lastModified": 1647356224,
-        "narHash": "sha256-IamxUL+101cawEuqmvB/WO7fDySl/BPVsqiilUsW1Mk=",
+        "lastModified": 1647556816,
+        "narHash": "sha256-svJAv6vZkDXhZxFzy+GReGAp6APKrawAhO4rlyuMYZ0=",
         "owner": "input-output-hk",
         "repo": "nomad-driver-nix",
-        "rev": "175fe26186bcee9e41ffa56342d0587d20ff66d7",
+        "rev": "9b694439b05f26945eb25eb80caa87d9334521dc",
         "type": "github"
       },
       "original": {

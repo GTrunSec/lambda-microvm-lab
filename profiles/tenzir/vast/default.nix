@@ -4,6 +4,10 @@
   pkgs,
   ...
 }: {
+  systemd.services.vast = {
+    after = [ "microvm-tap-interfaces@tap-qemu-1.service" ];
+  };
+
   services.vast = {
     enable = true;
     package = pkgs.vast-release;

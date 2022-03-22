@@ -4,7 +4,7 @@
   customModules,
   ...
 }: {
-  nomad_nixos_1 = {
+  nomad-nixos-1 = {
     modules = [
       customModules.nomad
     ];
