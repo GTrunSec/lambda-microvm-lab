@@ -15,5 +15,5 @@ channels: inputs: self: let
   );
 in {
   apps = {} // mkApp;
-  packages.microvm-kernel = self.nixosConfigurations.bridge_qemu_tap.config.system.build.kernel.dev;
+  packages.microvm-kernel = self.nixosConfigurations.bridge-qemu-tap.config.system.build.kernel.dev;
 }

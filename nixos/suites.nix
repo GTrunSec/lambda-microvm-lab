@@ -14,6 +14,9 @@ with inputs.nixpkgs; rec {
       ssh = digga.lib.rakeLeaves ../profiles/ssh;
       zeek = digga.lib.rakeLeaves ../profiles/zeek;
       secrets = digga.lib.rakeLeaves ../profiles/secrets;
+      database = digga.lib.rakeLeaves ../profiles/database;
+      broker = digga.lib.rakeLeaves ../profiles/broker;
+      storage = digga.lib.rakeLeaves ../profiles/storage;
     };
   ##################
   # Profiles Tags  #
@@ -40,7 +43,7 @@ with inputs.nixpkgs; rec {
     ################
     bridge-common = [microvm.bridge];
     bridge-qemu-tap = base ++ [tenzir.vast microvm.common bridge-common ssh.host secrets.age zeek.cluster];
-    bridge-qemu-2 = base ++ [tenzir.vast microvm.common];
+    bridge-qemu-2 = base ++ [tenzir.vast microvm.common openctiProfile];
     bridge-firecracker-1 =
       base
       ++ [
@@ -54,6 +57,8 @@ with inputs.nixpkgs; rec {
     ###############
     # nomad hosts #
     ###############
-    nomad-nixos-1 = base ++ [tenzir.vast];
+    openctiProfile = [database.redis elk.elasticsearch storage.minio broker.rabbitmq];
+    nomad-tenzir-vast = base ++ [tenzir.vast];
+    nomad-tenzir-opencti = base ++ [tenzir.vast];
   };
 }

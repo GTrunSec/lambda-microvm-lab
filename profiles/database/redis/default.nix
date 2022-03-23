@@ -4,8 +4,7 @@
   pkgs,
   ...
 }: {
-  microvm = {
-    mem = 4000;
-    vcpu = 2;
+  services.redis = {
+    enable = true;
   };
 }

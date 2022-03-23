@@ -21,6 +21,7 @@ cluster = "10.0.0.1"
 [bridge-qemu-tap.services.zeek.sensor.worker_2]
 host = "10.0.0.12"
 interface = "enp0s5"
+
 #####
 # 2 #
 #####
@@ -37,9 +38,6 @@ endpoint = "192.168.122.100:42000"
 broker = true
 pcap.enable = false
 pcap.interface = "eth0"
-
-
-
 
 [bridge-firecracker_1.info]
 ip = "10.0.0.4"

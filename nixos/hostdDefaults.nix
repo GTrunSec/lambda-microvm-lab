@@ -12,6 +12,8 @@
     {_module.args.ourLib = self.lib;}
     inputs.home.nixosModules.home-manager
     inputs.microvm.nixosModules.microvm
+    inputs.vault-secrets.nixosModules.vault-secrets
+
     customModules.nsm
     customModules.secrets
     {}

@@ -4,7 +4,12 @@
   customModules,
   ...
 }: {
-  nomad-nixos-1 = {
+  nomad-tenzir-vast = {
+    modules = [
+      customModules.nomad
+    ];
+  };
+  nomad-tenzir-opencti = {
     modules = [
       customModules.nomad
     ];

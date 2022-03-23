@@ -1,5 +1,6 @@
 [devshell]
-packages = [ ]
+packages = []
+
 [[commands]]
 name = "microvm-firecracker-bridge"
 category = "bridge"
@@ -15,6 +16,13 @@ command = '''
 help = "run microvm of qemu-bridge | root required"
 
 [[commands]]
+name = "microvm-qemu-bridge-2"
+category = "hosts"
+command = "nix run .#bridge-qemu-2 --print-build-logs"
+help = "run microvm of qemu-bridge-2 | root required"
+
+
+[[commands]]
 name = "microvm-qemu-tap"
 category = "hosts"
 command = '''
@@ -25,18 +33,11 @@ help = "run microvm of qemu-host"
 [[commands]]
 name = "cachix-microvm"
 category = "cache"
-command = "nix -Lv build .#microvm-kernel --no-link --json | jq -r '.[].outputs | to_entries[].value' | cachix push zeek"
+command = "nix -Lv build .#microvm-kernel --no-link --json | jq -r '.[].outputs | to_entries[].value' | cachix push gtrunsec"
 help = "push microvm-kernel to cachix"
 
 [[commands]]
-name = "cachix-qemu"
-category = "cache"
-command = "nix -Lv build .#qemu --no-link --json | jq -r '.[].outputs | to_entries[].value' | cachix push zeek"
-help = "push qemu to cachix"
-
-
-[[commands]]
-name = "nomad-nixos-1"
+name = "nomad-tenzir-vast"
 category = "nomad"
-command = "nix build .#nixosConfigurations.nomad-nixos-1.config.system.build.toplevel --print-build-logs"
+command = "nix build .#nixosConfigurations.nomad-tenzir-vast.config.system.build.toplevel --print-build-logs"
 help = "build nomad_nixos_1"

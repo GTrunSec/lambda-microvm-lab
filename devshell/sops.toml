@@ -1,2 +1,2 @@
 [devshell]
-packages = [ "sops" ]
+packages = ["sops"]

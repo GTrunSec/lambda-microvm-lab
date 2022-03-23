@@ -31,9 +31,6 @@ broker = false
 pcap.enable = true
 pcap.interface = "enp0s5"
 
-
-
-
 ####################
 # tap-firecrackers #
 ####################
@@ -48,7 +45,6 @@ endpoint = "10.0.0.1:42000"
 broker = true
 pcap.enable = false
 pcap.interface = "enp0s5"
-
 
 #########################
 # tap-cloud-hypervisors #

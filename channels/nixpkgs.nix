@@ -11,7 +11,6 @@
         lib = prev.lib.extend (lfinal: lprev: {our = self.lib;});
 
         nomad-driver = inputs.nomad-driver.defaultPackage."${prev.stdenv.hostPlatform.system}";
-        nomad = inputs.nomad.defaultPackage."${prev.stdenv.hostPlatform.system}";
 
         inherit
           (inputs.vast2nix.packages."${prev.stdenv.hostPlatform.system}")
@@ -19,7 +18,8 @@
           ;
       }
     )
-    inputs.microvm.overlay
     inputs.sops-nix.overlay
+    inputs.vault-secrets.overlay
+    inputs.ragenix.overlay
   ];
 }

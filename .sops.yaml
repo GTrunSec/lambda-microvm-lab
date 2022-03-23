@@ -4,4 +4,4 @@ creation_rules:
   - path_regex: (secrets|secrets/keys/rootIdentityFile)/[^/]+\.(yaml|keytab)$
     key_groups:
       - pgp:
-        - *guangtao
+          - *guangtao
