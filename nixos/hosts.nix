@@ -14,4 +14,9 @@
       customModules.nomad
     ];
   };
+  nomad-airflow = {
+    modules = [
+      customModules.nomad
+    ];
+  };
 }

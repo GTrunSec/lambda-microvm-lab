@@ -6,5 +6,10 @@ endpoint = "127.0.0.1:42000"
 
 [nomad-tenzir-opencti.info]
 ipv4 = "127.0.0.1"
+
 [nomad-tenzir-opencti.services.vast]
 endpoint = "127.0.0.1:42000"
+
+
+[nomad-airflow.info]
+ipv4 = "127.0.0.1"

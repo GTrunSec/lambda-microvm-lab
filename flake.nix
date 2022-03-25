@@ -44,6 +44,7 @@
     zeek2nix.url = "github:hardenedlinux/zeek2nix";
     vast2nix.url = "github:gtrunsec/vast2nix";
     threatbus2nix.url = "github:gtrunsec/threatbus2nix";
+    airflow2nix.url = "github:gtrunsec/airflow2nix";
   };
   outputs = inputs @ {
     self,

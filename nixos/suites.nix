@@ -57,11 +57,14 @@ with inputs.nixpkgs; rec {
     ###############
     # nomad hosts #
     ###############
-    openctiProfile = [database.redis
-                      elk.elasticsearch
-                      storage.minio broker.rabbitmq
-                     ];
+    openctiProfile = [
+      database.redis
+      elk.elasticsearch
+      storage.minio
+      broker.rabbitmq
+    ];
     nomad-tenzir-vast = base ++ [tenzir.vast];
     nomad-tenzir-opencti = base ++ [tenzir.vast openctiProfile];
+    nomad-airflow = base ++ [ airflow];
   };
 }
