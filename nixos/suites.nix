@@ -35,9 +35,9 @@ with inputs.nixpkgs; rec {
     tap-qemu-host = base ++ [ssh.host tap-common tenzir.vast];
     tap-qemu-1 = base ++ [tap-client tap-common zeek.sensor];
     tap-qemu-2 = base ++ [tap-client tap-common zeek.sensor];
-    tap-firecracker_1 = base ++ [tap-client tap-common];
-    tap-cloud-hypervisor_1 = base ++ [tap-client tap-common];
-    tap-cloud-hypervisor_2 = base ++ [tap-client tap-common];
+    tap-firecracker-1 = base ++ [tap-client tap-common];
+    tap-cloud-hypervisor-1 = base ++ [tap-client tap-common];
+    tap-cloud-hypervisor-2 = base ++ [tap-client tap-common];
     ################
     # Bridge Hosts #
     ################
@@ -62,6 +62,6 @@ with inputs.nixpkgs; rec {
                       storage.minio broker.rabbitmq
                      ];
     nomad-tenzir-vast = base ++ [tenzir.vast];
-    nomad-tenzir-opencti = base ++ [tenzir.vast];
+    nomad-tenzir-opencti = base ++ [tenzir.vast openctiProfile];
   };
 }
