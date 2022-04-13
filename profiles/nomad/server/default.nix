@@ -4,6 +4,8 @@
   pkgs,
   ...
 }: {
+  networking.firewall.allowedUDPPorts = [4647 4646];
+  networking.firewall.allowedTCPPorts = [4647 4646];
   services.nomad = {
     enable = true;
     enableDocker = true;
