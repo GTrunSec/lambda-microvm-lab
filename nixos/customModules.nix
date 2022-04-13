@@ -16,6 +16,5 @@ with inputs; {
     "${nixpkgs}/nixos/modules/profiles/base.nix"
     "${nixpkgs}/nixos/modules/profiles/headless.nix"
     "${nixpkgs}/nixos/modules/profiles/minimal.nix"
-    "${nixpkgs}/nixos/modules/profiles/qemu-guest.nix"
   ];
 }

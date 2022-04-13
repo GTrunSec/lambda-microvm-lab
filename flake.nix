@@ -12,12 +12,11 @@
     devshell.url = "github:numtide/devshell";
     devshell.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixpkgs.url = "github:NixOS/nixpkgs/release-21.11";
-    unstbale.url = "github:NixOS/nixpkgs/nixos-unstable";
+    #nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.follows = "microvm/nixpkgs";
     latest.url = "github:NixOS/nixpkgs/master";
 
     microvm.url = "github:astro/microvm.nix";
-    microvm.inputs.nixpkgs.follows = "nixpkgs";
     #microvm.url = "/home/gtrun/ghq/github.com/astro/microvm.nix";
 
     cells.url = "github:gtrunsec/DevSecOps-cells";

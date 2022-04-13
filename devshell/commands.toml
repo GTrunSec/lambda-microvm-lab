@@ -33,7 +33,7 @@ help = "run microvm of qemu-host"
 [[commands]]
 name = "cachix-microvm"
 category = "cache"
-command = "nix -Lv build .#microvm-kernel --no-link --json | jq -r '.[].outputs | to_entries[].value' | cachix push gtrunsec"
+command = "nix -Lv build .#microvm-kernel --option extra-substituters https://nix-serve.hq.c3d2.de --option trusted-public-keys nix-serve.hq.c3d2.de:KZRGGnwOYzys6pxgM8jlur36RmkJQ/y8y62e52fj1ps= --no-link --json | jq -r '.[].outputs | to_entries[].value' | cachix push gtrunsec"
 help = "push microvm-kernel to cachix"
 
 [[commands]]

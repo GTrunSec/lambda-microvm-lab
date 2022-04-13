@@ -1,3 +1,19 @@
+[nomad-qemu-cluster.info]
+ipv4 = "192.168.122.100"
+bridge = "enp0s6"
+defaultGateway = "192.168.122.1"
+microvm.interfaces.bridge = "virbr0"
+
+[nomad-qemu-cluster.services.nomad]
+consul.address = "192.168.122.100"
+
+[nomad-qemu-cluster.services.consul]
+retry_join = ["192.168.122.100"]
+client_addr = "192.168.122.100"
+ports.grpc = 8502
+interface.bind = "enp0s6"
+interface.advertise = "enp0s6"
+
 [nomad-tenzir-vast.info]
 ipv4 = "127.0.0.1"
 
@@ -9,7 +25,6 @@ ipv4 = "127.0.0.1"
 
 [nomad-tenzir-opencti.services.vast]
 endpoint = "127.0.0.1:42000"
-
 
 [nomad-airflow.info]
 ipv4 = "127.0.0.1"

@@ -17,6 +17,8 @@ with inputs.nixpkgs; rec {
       database = digga.lib.rakeLeaves ../profiles/database;
       broker = digga.lib.rakeLeaves ../profiles/broker;
       storage = digga.lib.rakeLeaves ../profiles/storage;
+      nomad = digga.lib.rakeLeaves ../profiles/nomad;
+      consul = digga.lib.rakeLeaves ../profiles/consul;
     };
   ##################
   # Profiles Tags  #
@@ -63,8 +65,9 @@ with inputs.nixpkgs; rec {
       storage.minio
       broker.rabbitmq
     ];
-    nomad-tenzir-vast = base ++ [tenzir.vast];
-    nomad-tenzir-opencti = base ++ [tenzir.vast openctiProfile];
-    nomad-airflow = base ++ [ airflow];
+    nomad-qemu-cluster = base ++ [microvm.common bridge-common] ++ [nomad.server consul.server];
+    nomad-tenzir-vast = base ++ [nomad.common tenzir.vast];
+    nomad-tenzir-opencti = base ++ [nomad.common tenzir.vast openctiProfile];
+    nomad-airflow = base ++ [nomad.common airflow];
   };
 }
