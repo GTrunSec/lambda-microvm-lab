@@ -5,7 +5,7 @@ defaultGateway = "192.168.122.1"
 microvm.interfaces.bridge = "virbr0"
 
 [nomad-qemu-cluster.services.nomad]
-consul.address = "192.168.122.100"
+consul.address = "192.168.122.100:8500"
 
 [nomad-qemu-cluster.services.consul]
 retry_join = ["192.168.122.100"]
