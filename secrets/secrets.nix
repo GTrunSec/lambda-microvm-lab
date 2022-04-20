@@ -7,4 +7,6 @@ let
   machine = [lambad_microvm_host];
 in {
   "host/id_ed25519".publicKeys = machine ++ owner;
+  "waterwheel".publicKeys = machine ++ owner;
+  "waterwheel-hmac".publicKeys = machine ++ owner;
 }

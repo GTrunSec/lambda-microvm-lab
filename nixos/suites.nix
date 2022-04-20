@@ -44,7 +44,18 @@ with inputs.nixpkgs; rec {
     # Bridge Hosts #
     ################
     bridge-common = [microvm.bridge];
-    bridge-qemu-tap = base ++ [tenzir.vast microvm.common bridge-common ssh.host secrets.age zeek.cluster];
+    bridge-qemu-tap =
+      base
+      ++ [
+        bridge-common
+        microvm.common
+        ssh.host
+        secrets.age
+        # ssh.host secrets.age zeek.cluster
+        # tenzir.vast
+        waterwheel
+        broker.rabbitmq
+      ];
     bridge-qemu-2 = base ++ [tenzir.vast microvm.common openctiProfile];
     bridge-firecracker-1 =
       base
@@ -69,5 +80,6 @@ with inputs.nixpkgs; rec {
     nomad-tenzir-vast = base ++ [nomad.common tenzir.vast];
     nomad-tenzir-opencti = base ++ [nomad.common tenzir.vast openctiProfile];
     nomad-airflow = base ++ [nomad.common airflow];
+    nomad-waterwheel = base ++ [nomad.common waterwheel];
   };
 }

@@ -15,6 +15,8 @@
     inputs.vault-secrets.nixosModules.vault-secrets
     inputs.airflow2nix.nixosModules.airflow
 
+    inputs.waterwheel.nixosModules.waterwheel
+
     customModules.nsm
     customModules.secrets
     {}
