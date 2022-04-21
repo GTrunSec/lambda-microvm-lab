@@ -45,7 +45,7 @@
     threatbus2nix.url = "github:gtrunsec/threatbus2nix";
     airflow2nix.url = "github:gtrunsec/airflow2nix";
 
-    waterwheel.url = "/home/gtrun/ghq/github.com/sphenlee/waterwheel";
+    waterwheel.url = "github:gtrunsec/waterwheel/nix";
   };
   outputs = inputs @ {
     self,

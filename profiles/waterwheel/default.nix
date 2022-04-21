@@ -12,6 +12,7 @@
   };
   services.waterwheel = {
     enable = true;
+    worker.enable = true;
     database.passwordFile = config.age.secrets.waterwheel.path;
     secrets.hmac_secret = config.age.secrets.waterwheel-hmac_secret.path;
   };

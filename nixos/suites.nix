@@ -81,5 +81,6 @@ with inputs.nixpkgs; rec {
     nomad-tenzir-opencti = base ++ [nomad.common tenzir.vast openctiProfile];
     nomad-airflow = base ++ [nomad.common airflow];
     nomad-waterwheel = base ++ [nomad.common waterwheel];
+    nomad-nixos = base ++ [nomad.common];
   };
 }
