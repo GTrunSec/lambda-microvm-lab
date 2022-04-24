@@ -17,7 +17,7 @@
     latest.url = "github:NixOS/nixpkgs/master";
 
     microvm.url = "github:astro/microvm.nix";
-    #microvm.url = "/home/gtrun/ghq/github.com/astro/microvm.nix";
+    # microvm.url = "/home/gtrun/ghq/github.com/astro/microvm.nix";
 
     cells.url = "github:gtrunsec/DevSecOps-cells";
 

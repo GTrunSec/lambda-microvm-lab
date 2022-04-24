@@ -1,15 +1,12 @@
 [nomad-qemu-cluster.info]
-ipv4 = "192.168.122.100"
-bridge = "enp0s6"
-defaultGateway = "192.168.122.1"
-microvm.interfaces.bridge = "virbr0"
+ipv4 = "10.0.2.15"
 
 [nomad-qemu-cluster.services.nomad]
-consul.address = "192.168.122.100:8500"
+consul.address = "10.0.2.15:8500"
 
 [nomad-qemu-cluster.services.consul]
-retry_join = ["192.168.122.100"]
-client_addr = "192.168.122.100"
+retry_join = ["10.0.2.15"]
+client_addr = "10.0.2.15"
 ports.grpc = 8502
 interface.bind = "enp0s6"
 interface.advertise = "enp0s6"

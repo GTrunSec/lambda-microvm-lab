@@ -40,6 +40,8 @@ with inputs.nixpkgs; rec {
     tap-firecracker-1 = base ++ [tap-client tap-common];
     tap-cloud-hypervisor-1 = base ++ [tap-client tap-common];
     tap-cloud-hypervisor-2 = base ++ [tap-client tap-common];
+    # users #
+    user-qemu-host = base ++ [microvm.common];
     ################
     # Bridge Hosts #
     ################
@@ -76,7 +78,7 @@ with inputs.nixpkgs; rec {
       storage.minio
       broker.rabbitmq
     ];
-    nomad-qemu-cluster = base ++ [microvm.common bridge-common] ++ [nomad.server consul.server];
+    nomad-qemu-cluster = base ++ [microvm.common] ++ [nomad.server consul.server];
     nomad-tenzir-vast = base ++ [nomad.common tenzir.vast];
     nomad-tenzir-opencti = base ++ [nomad.common tenzir.vast openctiProfile];
     nomad-airflow = base ++ [nomad.common airflow];

@@ -21,7 +21,7 @@
         cni_path = "${pkgs.cni-plugins}/bin/";
       };
       # FIXME: more generic way
-      consul.address = config.machine.services.nomad.consul.address;
+      # consul.address = config.machine.services.nomad.consul.address;
     };
   };
 }

@@ -19,7 +19,7 @@
 
   services.postgresql = let
     password = lib.fileContents config.age.secrets.waterwheel.path;
-    in {
+  in {
     enable = true;
     initialScript = pkgs.writeText "pg-init-script.sql" ''
       CREATE ROLE waterwheel LOGIN PASSWORD 'password';

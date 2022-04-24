@@ -3,6 +3,7 @@
   lib,
   pkgs,
   inputs,
+  self,
   ...
 }: let
   info = lib.our.getHostInfo ./.;
@@ -12,23 +13,31 @@ in {
   ];
 
   microvm = {
+    mem = 8192;
+    vcpu = 6;
+    socket = "${info.name}.sock";
+  };
+
+  microvm = {
     hypervisor = info.hypervisor;
     interfaces = [
       {
         type = "user";
-        id = "vm-nomad";
-        mac = "00:02:00:01:01:01";
+        id = "vm-${builtins.substring 0 4 "${info.hypervisor}"}${info.id}";
+        mac = "00:02:00:01:01:00";
       }
     ];
-    mem = 8192;
-    vcpu = 4;
-    socket = "${info.name}.sock";
     volumes = [
       {
         mountPoint = "/var";
         image = "${info.name}.img";
-        size = 1024;
+        size = 2048;
       }
     ];
   };
+
+  # microvm.vms."tap-qemu-1" = {
+  #   flake = self;
+  #   updateFlake = "microvm";
+  # };
 }
