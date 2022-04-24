@@ -3,14 +3,14 @@
   inputs,
   ...
 }: {
-  imports = [(inputs.digga.lib.importOverlays ../overlays/nixpkgs)];
+  imports = [(inputs.digga.lib.importOverlays ./overlays/nixpkgs)];
   overlays = [
     (
       final: prev: {
         __dontExport = true;
         lib = prev.lib.extend (lfinal: lprev: {our = self.lib;});
 
-        nomad-driver = inputs.nomad-driver.defaultPackage."${prev.stdenv.hostPlatform.system}";
+        inherit (inputs.nomad-driver.legacyPackages."${prev.system}") nomad-driver-nix;
 
         inherit
           (inputs.vast2nix.packages."${prev.stdenv.hostPlatform.system}")

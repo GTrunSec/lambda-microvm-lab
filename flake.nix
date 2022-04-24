@@ -67,7 +67,7 @@
 
       lib = import ./lib {lib = digga.lib // nixpkgs.lib;};
 
-      sharedOverlays = import ./overlays/share {inherit self inputs;};
+      sharedOverlays = import ./channels/overlays/shared {inherit self inputs;};
 
       devshell = ./devshell;
 

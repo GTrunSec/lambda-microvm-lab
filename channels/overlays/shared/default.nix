@@ -3,7 +3,6 @@
   inputs,
 }:
 with inputs; [
-  # (import ../../pkgs/default.nix)
   (
     final: prev: {
       __dontExport = true;

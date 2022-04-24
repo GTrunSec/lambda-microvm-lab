@@ -8,7 +8,10 @@
   channelName = "nixpkgs";
   imports = [(inputs.digga.lib.importExportableModules ./modules)];
   modules = [
-    {_module.args.ourLib = self.lib;}
+    {
+      _module.args.ourLib = self.lib;
+      disabledModules = ["services/networking/nomad.nix"];
+    }
     inputs.home.nixosModules.home-manager
 
     inputs.microvm.nixosModules.microvm

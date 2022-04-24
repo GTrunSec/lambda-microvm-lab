@@ -78,7 +78,7 @@ with inputs.nixpkgs; rec {
       storage.minio
       broker.rabbitmq
     ];
-    nomad-qemu-cluster = base ++ [microvm.common] ++ [nomad.server consul.server];
+    nomad-qemu-cluster = base ++ [microvm.common] ++ [nomad.server consul.server vault];
     nomad-tenzir-vast = base ++ [nomad.common tenzir.vast];
     nomad-tenzir-opencti = base ++ [nomad.common tenzir.vast openctiProfile];
     nomad-airflow = base ++ [nomad.common airflow];
