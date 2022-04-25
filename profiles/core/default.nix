@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  imports = [./nix.nix];
+  imports = [./nix.nix ./shell.nix];
 
   environment.systemPackages = [pkgs.git];
 }

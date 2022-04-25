@@ -7,9 +7,10 @@
   networking.firewall.allowedUDPPorts = [4647 4646];
   networking.firewall.allowedTCPPorts = [4647 4646];
 
+  systemd.services.nomad.serviceConfig.SupplementaryGroups = [ "podman" "docker"];
+
   services.nomad = {
     enable = true;
-    enableDocker = true;
     dropPrivileges = false;
     extraPackages = [pkgs.cni-plugins pkgs.consul];
     extraPlugins = [pkgs.nomad-driver-nix pkgs.nomad-driver-podman];
