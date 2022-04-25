@@ -12,7 +12,7 @@
   services.nomad = {
     enable = true;
     dropPrivileges = false;
-    extraPackages = [pkgs.cni-plugins pkgs.consul];
+    extraPackages = [pkgs.cni-plugins pkgs.consul pkgs.nixUnstable pkgs.podman];
     extraPlugins = [pkgs.nomad-driver-nix pkgs.nomad-driver-podman];
     settings = {
       server = {
