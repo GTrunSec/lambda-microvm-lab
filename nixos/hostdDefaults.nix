@@ -5,7 +5,7 @@
   customModules,
 }: {
   system = "x86_64-linux";
-  channelName = "nixpkgs";
+  channelName = "nixos";
   imports = [(inputs.digga.lib.importExportableModules ./modules)];
   modules = [
     {

@@ -13,7 +13,7 @@
     pkgs.nodePackages.prettier-plugin-toml
     pkgs.python3Packages.black
   ];
-  imports = [inputs.cells."x86_64-linux".update.devshellProfiles.default];
+  imports = [];
   devshell.startup.nodejs-setuphook = pkgs.lib.stringsWithDeps.noDepEntry ''
     export NODE_PATH=${pkgs.nodePackages.prettier-plugin-toml}/lib/node_modules:$NODE_PATH
   '';

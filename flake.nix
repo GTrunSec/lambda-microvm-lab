@@ -12,14 +12,11 @@
     devshell.url = "github:numtide/devshell";
     devshell.inputs.nixpkgs.follows = "nixpkgs";
 
-    #nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs.follows = "microvm/nixpkgs";
-    latest.url = "github:NixOS/nixpkgs/master";
+    nixos.follows = "microvm/nixpkgs";
+    nixos-latest.url = "github:NixOS/nixpkgs/master";
 
     microvm.url = "github:astro/microvm.nix";
     # microvm.url = "/home/gtrun/ghq/github.com/astro/microvm.nix";
-
-    cells.url = "github:gtrunsec/DevSecOps-cells";
 
     flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
     digga.url = "github:divnix/digga";
@@ -32,6 +29,7 @@
 
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
     ragenix.url = "github:yaxitech/ragenix";
     ragenix.inputs.nixpkgs.follows = "nixpkgs";
 
