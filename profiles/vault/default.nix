@@ -14,7 +14,6 @@
   };
 
   systemd.services.vault = {
-
     # after = ["create-netrc.service"];
 
     serviceConfig.ExecStart = lib.mkOverride 10 "${config.services.vault.package}/bin/vault server -dev -dev-no-store-token";

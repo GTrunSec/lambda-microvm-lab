@@ -1,9 +1,13 @@
-{ pkgs, config, lib, ... }:
 {
+  pkgs,
+  config,
+  lib,
+  ...
+}: {
   environment.shellInit = ''
   '';
 
-    programs.bash = {
+  programs.bash = {
     promptInit = ''
       eval "$(${pkgs.starship}/bin/starship init bash)"
     '';

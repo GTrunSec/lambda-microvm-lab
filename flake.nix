@@ -1,10 +1,10 @@
 {
   description = "Lambda Microvm For Hunting Lab";
-  nixConfig.extra-substituters = "https://zeek.cachix.org";
-  nixConfig.extra-trusted-public-keys = "zeek.cachix.org-1:w590YE/k5sB26LSWvDCI3dccCXipBwyPenhBH2WNDWI=";
-  nixConfig = {
-    flake-registry = "https://github.com/hardenedlinux/flake-registry/raw/main/flake-registry.json";
-  };
+  nixConfig.extra-substituters = ["https://microvm.cachix.org" "https://zeek.cachix.org"];
+  nixConfig.extra-trusted-public-keys = [
+    "microvm.cachix.org-1:oXnBc6hRE3eX5rSYdRyMYXnfzcCxC7yKPTbZXALsqys="
+    "zeek.cachix.org-1:w590YE/k5sB26LSWvDCI3dccCXipBwyPenhBH2WNDWI="
+  ];
   inputs = {
     flake-compat.url = "github:edolstra/flake-compat";
     flake-compat.flake = false;
@@ -44,6 +44,7 @@
     airflow2nix.url = "github:gtrunsec/airflow2nix";
 
     waterwheel.url = "github:gtrunsec/waterwheel/nix";
+    waterwheel.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs = inputs @ {
     self,
