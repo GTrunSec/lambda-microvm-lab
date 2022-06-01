@@ -13,13 +13,13 @@ category = "hosts"
 command = '''
         nix run .#bridge-qemu-tap --print-build-logs
         '''
-help = "run microvm of qemu-bridge | root required"
+help = "run microvm of qemu-bridge"
 
 [[commands]]
 name = "microvm-qemu-bridge-2"
 category = "hosts"
 command = "nix run .#bridge-qemu-2 --print-build-logs"
-help = "run microvm of qemu-bridge-2 | root required"
+help = "run microvm of qemu-bridge-2"
 
 
 [[commands]]

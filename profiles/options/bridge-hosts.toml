@@ -39,13 +39,13 @@ broker = true
 pcap.enable = false
 pcap.interface = "eth0"
 
-[bridge-firecracker_1.info]
+[bridge-firecracker-1.info]
 ip = "10.0.0.4"
 
-[bridge-firecracker_1.services.vast]
+[bridge-firecracker-1.services.vast]
 endpoint = "10.0.0.4:42000"
 
-[bridge-firecracker_1.services.vast-client]
+[bridge-firecracker-1.services.vast-client]
 endpoint = "10.0.0.1:42000"
 broker = true
 pcap.enable = false

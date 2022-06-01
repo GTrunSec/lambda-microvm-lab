@@ -3,8 +3,7 @@
   inputs,
   ...
 }:
-with inputs;
-with inputs.nixpkgs; rec {
+with inputs; rec {
   profiles =
     digga.lib.rakeLeaves ../profiles
     // {
