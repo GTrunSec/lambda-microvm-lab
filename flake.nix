@@ -12,6 +12,7 @@
     # Default Flakes #
     ##################
     nixos.url = "github:NixOS/nixpkgs/release-22.05";
+    # nixos.url = "github:NixOS/nixpkgs/release-22.05";
     nixos-latest.url = "github:NixOS/nixpkgs/master";
     nixos-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos_21_05.url = "github:NixOS/nixpkgs/nixos-21.05";
@@ -20,7 +21,7 @@
     devshell.inputs.nixpkgs.follows = "nixos";
 
     home.url = "github:nix-community/home-manager";
-    home.inputs.nixpkgs.follows = "nixos-latest";
+    home.inputs.nixpkgs.follows = "nixos";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nixos-generators.url = "github:nix-community/nixos-generators";
