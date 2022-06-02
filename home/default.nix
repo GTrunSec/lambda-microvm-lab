@@ -8,7 +8,7 @@
   importables = rec {
     profiles = inputs.digga.lib.rakeLeaves ../users/profiles;
     suites = with profiles; rec {
-      base = [direnv git zsh ];
+      base = [direnv git zsh];
     };
   };
   users = {

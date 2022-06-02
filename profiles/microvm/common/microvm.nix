@@ -25,4 +25,6 @@
       mountPoint = "/nix/.ro-store";
     }
   ];
+  # make home-manager writable
+  # microvm.writableStoreOverlay = "/nix/var/nix/temproots";
 }

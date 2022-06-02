@@ -11,8 +11,9 @@ with inputs; {
     (digga.lib.importExportableModules ../modules/nixos)
   ];
   modules = [
-    {lib.our = self.lib;
-     disabledModules = ["services/networking/nomad.nix"];
+    {
+      lib.our = self.lib;
+      disabledModules = ["services/networking/nomad.nix"];
     }
     digga.nixosModules.bootstrapIso
     home.nixosModules.home-manager
