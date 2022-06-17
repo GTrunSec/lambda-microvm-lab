@@ -10,8 +10,7 @@
     mode = (builtins.elemAt (builtins.split "-" config.networking.hostName) 0) + "-hosts";
   in
     (
-      {}
-      // (
+      (
         builtins.listToAttrs (
           map (
             conf: {

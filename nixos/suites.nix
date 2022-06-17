@@ -33,15 +33,17 @@ with inputs; rec {
       tenzir.vast-client
       ssh.client
       microvm.tap-client
+      zeek.sensor
     ];
     tap-qemu-host = base ++ [ssh.host tap-common tenzir.vast];
-    tap-qemu-1 = base ++ [tap-client tap-common zeek.sensor];
-    tap-qemu-2 = base ++ [tap-client tap-common zeek.sensor];
+    tap-qemu-1 = base ++ [tap-client tap-common ];
+    tap-qemu-2 = base ++ [tap-client tap-common ];
+
     tap-firecracker-1 = base ++ [tap-client tap-common];
     tap-cloud-hypervisor-1 = base ++ [tap-client tap-common];
     tap-cloud-hypervisor-2 = base ++ [tap-client tap-common];
     # users #
-    user-qemu-host = base ++ [microvm.common];
+    user-qemu-host = base ++ [microvm.common tenzir.vast-client];
     ################
     # Bridge Hosts #
     ################
@@ -87,7 +89,7 @@ with inputs; rec {
         vault
         virtualisation.podman
       ];
-    nomad-tenzir-vast = base ++ [nomad.common tenzir.vast];
+    nomad-tenzir-vast = base ++ [nomad.common tenzir.vast-client];
     nomad-tenzir-opencti = base ++ [nomad.common tenzir.vast openctiProfile];
     nomad-airflow = base ++ [nomad.common airflow];
     nomad-waterwheel = base ++ [nomad.common waterwheel];

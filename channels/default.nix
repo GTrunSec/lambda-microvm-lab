@@ -18,7 +18,6 @@ inputs: {
       inputs.sops-nix.overlay
       inputs.vault-secrets.overlay
       inputs.ragenix.overlay
-      inputs.emacs-overlay.overlay
     ];
   };
   darwin-nixpkgs = {

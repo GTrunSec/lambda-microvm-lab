@@ -11,11 +11,12 @@
     ##################
     # Default Flakes #
     ##################
+    microvm.url = "github:astro/microvm.nix";
+
     nixos.url = "github:NixOS/nixpkgs/release-22.05";
     # nixos.url = "github:NixOS/nixpkgs/release-22.05";
     nixos-latest.url = "github:NixOS/nixpkgs/master";
     nixos-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixos_21_05.url = "github:NixOS/nixpkgs/nixos-21.05";
 
     devshell.url = "github:numtide/devshell";
     devshell.inputs.nixpkgs.follows = "nixos";
@@ -26,7 +27,6 @@
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nixos-generators.url = "github:nix-community/nixos-generators";
 
-    microvm.url = "github:astro/microvm.nix";
   };
 
   ###################
@@ -40,11 +40,9 @@
   };
 
   inputs = {
-    flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
     digga.url = "github:divnix/digga";
     digga.inputs.nixpkgs.follows = "nixos";
     digga.inputs.devshell.follows = "devshell";
-    digga.inputs.flake-utils-plus.follows = "flake-utils-plus";
 
     flake-compat.url = "github:edolstra/flake-compat";
     flake-compat.flake = false;
@@ -62,8 +60,6 @@
     ragenix.url = "github:yaxitech/ragenix";
     ragenix.inputs.nixpkgs.follows = "nixos";
 
-    emacs-overlay.url = "github:nix-community/emacs-overlay/27fea646189ff7572453e1e3a4d1eb9dc5887fb2";
-
     nixpkgs-hardenedlinux.url = "github:hardenedlinux/nixpkgs-hardenedlinux";
   };
 
@@ -75,7 +71,8 @@
     nomad-driver.inputs.nixpkgs.follows = "nixos";
 
     zeek2nix.url = "github:hardenedlinux/zeek2nix";
-    vast2nix.url = "github:gtrunsec/vast2nix";
+    # qvast2nix.url = "github:gtrunsec/vast2nix";
+    vast2nix.url = "/home/gtrun/ghq/github.com/GTrunSec/vast2nix";
     threatbus2nix.url = "github:gtrunsec/threatbus2nix";
     airflow2nix.url = "github:gtrunsec/airflow2nix";
 

@@ -6,9 +6,9 @@
 }: {
   users.users.root.openssh.authorizedKeys.keys = [];
 
-  systemd.services.zeek = {
-    after = ["microvm-tap-interfaces@tap-qemu-1.service"];
-  };
+  # systemd.services.zeek = {
+  #   after = ["microvm-tap-interfaces@tap-qemu-1.service"];
+  # };
 
   services.zeek = {
     enable = true;
@@ -44,7 +44,8 @@
       pin_cpus=0,1,2
     '';
     package = pkgs.zeek-release.override {};
-    # privateScript = ''
-    #  '';
+    privateScript = ''
+    @load /home/gtrun/ghq/github.com/Boomboomdunce/zeek-mail-detection/scripts
+     '';
   };
 }

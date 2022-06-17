@@ -1,0 +1,12 @@
+[user-qemu-host.info]
+ip = "10.0.0.1"
+
+[user-qemu-host.services.vast]
+endpoint = "10.0.0.1:42000"
+
+
+[user-qemu-host.services.vast-client]
+endpoint = "10.0.0.1:42000"
+broker = false
+pcap.enable = true
+pcap.interface = "enp0s5"

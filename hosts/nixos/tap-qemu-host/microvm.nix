@@ -8,9 +8,7 @@
 }: let
   name = builtins.baseNameOf ./.;
 in {
-  imports = [
-    inputs.microvm.nixosModules.host
-  ];
+  imports = [];
 
   microvm = {
     mem = 8192;
